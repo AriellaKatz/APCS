@@ -1,0 +1,30 @@
+0. "Base" refers to the number of unique digits available to represent numbers. For example, in binary, or "base-2", there are 2 available digits: 0 and 1.
+1. Binary is a base-2 number system (using digits 0 and 1) that is used to represent numbers through sums of powers of 2 (see 2.). Binary is mportant because 
+    it's the most basic "language of computers. It's the simplest number system used in computer programming while achieving the same amount of work as any 
+    other number system. Its 0's and 1's can represent basic outcomes, like on vs. off, true vs. false, yes vs. no. 
+2. Binary -> Decimal Algorithm:
+    Given a binary number...
+      0. For the nth digit from the right, multiply that digit by 2^(n-1).
+      1. Repeat step 0 for all digits.
+      2. Find the sum of the results for each digit.
+      This sum is the equivalent decimal number.
+    Ex: 
+3. Decmial -> Binary Algorithm:
+    Given a decimal number...
+      0. Divide by 2 and record the remainder (0 or 1).
+      1. Repeat step 0 for the integer quotient of step 0.
+      2. Repeat step 1 until the quotient is 0.
+      3. List the remainders in order of how they were computed from right to left.
+
+Ex 35-->100011
+
+35/2 = 17 r 1
+17/2 = 8 r 1
+8/2 = 4 r 0
+4/2 = 2 r 0
+2/2= 1 r 0
+1/2 = 0 r 1
+
+--> 100011
+
+Resources:wikipedia,teammates
