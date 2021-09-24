@@ -1,7 +1,9 @@
-0. "Base" refers to the number of unique digits available to represent numbers. For example, in binary, or "base-2", there are 2 available digits: 0 and 1.
-1. Binary is a base-2 number system (using digits 0 and 1) that is used to represent numbers through sums of powers of 2 (see 2). Binary is important because 
-    it's the most basic "language" of computers. It's the simplest number system used in computer programming while achieving the same amount of work as any 
-    other number system. Its 0's and 1's can represent basic outcomes, like on vs. off, true vs. false, yes vs. no. 
+0. "Base" refers to the number of unique digits available to represent numbers. For example, in binary, or "base-2", 
+    there are 2 available digits: 0 and 1.
+1. Binary is a base-2 number system (using digits 0 and 1) that is used to represent numbers through sums of powers of 2 
+    (see 2). Binary is important because it's the most basic "language" of computers. It's the simplest number system 
+    used in computer programming while achieving the same amount of work as any other number system. Its 0's and 1's can 
+    represent basic outcomes, like on vs. off, true vs. false, yes vs. no. 
 2. Binary -> Decimal Algorithm:
     Given a binary number...
       0. For the nth digit from the right, multiply that digit by 2^(n-1).
@@ -34,5 +36,6 @@
 Resources: Wikipedia,teammates
 
 Notes/Questions: 
-    In binary, if the first digit (or digits) of a non-zero number is 0, it's the same as a leading 0 with decimal numbers (i.e. 00100011 is analogous to 0035).
+    In binary, if the first digit (or digits) of a non-zero number is 0, it's the same as a leading 0 with decimal numbers 
+     (i.e. 00100011 is analogous to 0035).
     Can you have negatives and non-integers in binary? Even if you theoretically could, would there be a use for them?
