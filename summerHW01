@@ -1,0 +1,5 @@
+Understanding of 01:
+ ~public~ means that the class or method can be referenced/used elsewhere.
+ ~class~ means that it's a class.
+ ~Hello~ is the name of the class - traditionally the first letter is capitalized. The file name should be class.java 
+   (in this case, Hello.java). Each file has only 
