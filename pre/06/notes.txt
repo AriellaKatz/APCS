@@ -1,0 +1,113 @@
+Loops – Think Java Ch 7
+
+Vocab:
+• Iteration
+• Condition
+• Body	
+• Loop variable
+• Loop
+• Infinite loop
+• Program development
+• Encapsulation and generalization
+• Initializer
+• Update
+• Increment
+• Decrement
+• Pretest loops
+• Posttest loop
+
+Notes:
+	Iteration is running the same code multiple times.
+	Recursion is used for iteration.
+	Java also provides while and for statements to make iteration easier.
+	Consider the following:
+public static void countdown(int n) {
+	while (n > 0) {
+		System.out.println(n);
+		n = n – 1;
+	}
+	System.out.println(“Blastoff!”);
+}
+While n is >0, print the value of n and then reduce the value of n by 1. When you get to 0, print Blastoff!
+	The expression in parentheses is the condition.
+	The statements in braces are the body.
+	n is the loop variable.
+	The flow of execution is:
+	Evaluate the condition, yielding true or false.
+	If the condition is false, skip the body and go to the next statement.
+	If the condition is true, execute the body and go back to step 1.
+This is called a loop because the last step loops back to the first.
+	The body of a loop should change the value of at least one value so that the condition eventually becomes false and the loop terminates.
+	Otherwise, it is an infinite loop.
+	Sometimes, it is difficult to prove whether a loop terminates.
+	Loops can be used to make tables.
+	Program development is a way of writing programs.
+	Encapsulation and generalization is a program development process that follows these steps:
+	Write a few lines of code in main or another method and test them.
+	When they are working, wrap them in a new method and test again.
+	If appropriate, replace literals with variables and parameters.
+Step 2 is encapsulation. Step 3 is generalization.
+	Consider the following:
+public static void countdown() {
+	for (int n = 3; n > 0; n = n - 1) {
+		System.out.println(n);
+	}
+	System.out.println(“Blastoff!”)
+}
+This is the countdown method, but as a for loop instead of a while loop (it counts down from 3).
+	int n = 3 is the initializer and it runs once at the very beginning of the loop.
+	n > 0 is the condition, which works the same way as in a while loop.
+	At the end of each iteration, the update runs, and we go back to the condition.
+	Java provides more concise ways of increasing or decreasing the loop variable by 1, or another given amount:
+	++ is the increment operator (for n = n + 1).
+	-- is the decrement operator (for n = n – 1).
+	+= is for adding amounts other than 1 (n = n + 2 → n += 2).
+	-= is for subtracting amounts other than 1 (n = n – 2 → n -= 2).
+	Unlike in a while loop, with a for loop, if a variable is declared in the initializer, it only exists inside the for loop.
+	The while and for statements are pretest loops (they test the condition first and at the beginning of each iteration).
+	The do-while statement is a posttest loop, which is useful when you need to run the body at least once.
+Consider the following:
+Scanner in = new Scanner(System.in);
+boolean okay;
+do {
+	System.out.print(“Enter a number: “);
+	if (in.hasNextDouble()) {
+		okay = true;
+	} else {
+		okay = false;
+		String word = in.next();
+		System.err.println(word + “ is not a number”);
+	}
+} while (!okay);
+double x = in.nextDouble();
+This has 3 basic steps:
+	Display a promt.
+	Check the input; if invalid, display an error and start over.
+	Read the input.
+okay is a flag variable that indicates whether we need to repeat the loop body. If hasNextDouble() (checks to see if the next token is an integer) returns false, we consume the invalid input by calling next() and display an error message using System.err. The loop terminates when hasNextDouble() returns true.
+	break statements tell a program to exit the current loop:
+Scanner in = new Scanner(System.in);
+while (true) {
+	System.out.print(“Enter a number: “);
+	if (in.hasNextDouble()) {
+		break;
+	}
+	String word = in.next();
+	System.err.println(word + “ is not a number”);
+}
+double x = in.nextDouble();
+Using true as a conditional in a while loop tells it to loop forever, or in this case, until it gets to a break statement. The above code is more efficient than the previous code.
+	Java also provides continue statements, which move on to the next iteration:
+Scanner in = new Scanner(System.in);
+int x = -1;
+int sum = 0;
+while (x != 0) {
+	x = in.nextInt();
+	if (x <= 0) {
+		continue;
+	}
+	System.out.println(“Adding ” + x);
+	sum += x;
+}
+This reads integers from the keyboard and computes a running total. The continue statement causes the program to skip over negative values.
+	break and continue statements give more control over loop execution but may overcomplicated the code.

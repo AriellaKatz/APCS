@@ -1,0 +1,6 @@
+Value Methods – Think Java Ch 6
+
+Notes:
+	In the setup of a method, void is a returntype. Returntypes tell you
+ what kind of data the method returns (along with void – returns nothing,
+ a returntype can be any data type, like String or double).

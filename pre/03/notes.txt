@@ -1,0 +1,78 @@
+Void Methods – Think Java Ch 4
+
+New Vocab:
+• Composed
+• Flow of execution
+• Parameter passing
+• Local variables
+• Constructor summary
+• Method summary
+• Constructor detail
+• Method detail
+
+Notes:
+	The Math class (already in the java.lang package) provides common mathematical operations, constants, and methods:
+Math.sqrt(16.0) = 4
+Math.sin(pi/6) = 1/2
+Math.PI ≈ pi
+Math.E ≈ Euler’s number 
+Math.toRadians(180.0) = pi
+Math.pow(2.0, 5.0) = 32
+Math.exp(3.0) = e^3
+	Arguments of trig functions should be in radians.
+	Operations are methods. Methods must be followed by () with the argument.
+	Math.round() rounds a floating-point value to the nearest integer (it doesn’t round towards 0) and returns a long, which is like an int but bigger.
+	The log method always uses base e.
+	Java methods can be composed (you can use one expression as part of another).
+	By convention, class names begin with a capital letter. Methods begin with a lowercase letter. Both use “camel case” (jammingWordsTogetherLikeThis). 
+	You can use whatever name you want for methods, except main or any Java keywords.
+public class NewLine {
+
+    public static void newLine() {
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        System.out.println("First line.");
+        newLine();
+        System.out.println("Second line.");
+    }
+}
+↪ First line.
+
+   Second line.
+	In the above, NewLine is a class and newLine and main are methods.
+	If a method is public, it can be invoked from other classes. 
+	If a method is void, it doesn’t yield a result.
+	Math methods are not void (they yield results).
+	The parentheses after the method name contain parameters declared with their type.
+	main has one parameter, called args, which has type String[]. This means that whoever invokes main must provide an array of strings.
+	newLine has no parameters so it requires no arguments, demonstrated when it is invoked in main. It’s in the same class as main, so we don’t have to clarify class when we invoke it.
+	Methods can be invoked multiple times and they can be invoked within each other.
+	The flow of execution of a program is the order in which statements are executed.
+	It always beings with the first statement of main, regardless of where it is in the file. Statements are executed one at a time, in order, until a method is invoked, and you detour to that method, execute all the statements there, and return to where you left off.
+	When you use a method, you provide the arguments. When you write a method, you name the parameters. The parameter list indicates what arguments are required.
+	Parameter passing is when the argument gets assigned to the parameter (before the method executes).
+	The value provided as an argument must have the same type as the corresponding parameter.
+	Sometimes Java will automatically convert the argument to the proper type, but don’t count on it.
+	Parameters and other variables only exist within their own methods, which is why they’re called local variables.
+	Arguments should be provided in the same order as the corresponding parameters for a method.
+	Arguments can be expressions, which will be evaluated before the method is invoked with them.
+	Stack diagrams list a class’s methods with their corresponding parameters and those parameters’ current values.
+	The documentation of classes contains the following information, in order:
+	The package that contains the class
+	The name of the class
+	Implemented interfaces (we don’t know about those yet)
+	Purpose of the class and how to use it, with examples
+	Constructor summary (how to create (“construct”) the class)
+	Method summary (list of methods provided by the class)
+	Constructor detail (more about how to create the class)
+	Method detail (more info about each method)
+	A “Returns” section, which describes the result when the method succeeds
+	A “Throws” section, which describes possible errors
+	We can write documentation for our own code using Javadoc, which scans your source files looking for documentation comments (aka Javadoc comments), which are formatted as follows:
+/** 
+documentation
+*/
+	Javadoc comments are usually longer, complete sentences, intended for people who will use methods without looking at the source code (they don’t explain how it works). In contrast, inline comments (//) are short phrases that explain complex parts of a program.
+
