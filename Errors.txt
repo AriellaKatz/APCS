@@ -1,0 +1,1 @@
+This file contains errors I get when running my code and my notes on them.
