@@ -7,6 +7,9 @@ worked with Tom, Jacob Kirmayer, Jacob Jr, Nafiz Labib, Martha
 
 /*
 DISCOVERIES:
+It's ok for you to have a classes with the same name as long as they're in
+ different directories. It will only use classes that are in your current
+ directory.
 UNRESOLVED QUESTIONS:
 */
 
