@@ -1,8 +1,7 @@
 /*
-Ariella Katz
+Phase 0: Ariella Katz, Tom, Jacob Kirmayer, Jacob Jr, Nafiz Labib, Martha
 APCS
 HW10 -- Different kinds of outputs
-worked with Tom, Jacob Kirmayer, Jacob Jr, Nafiz Labib, Martha
 */
 
 /*
