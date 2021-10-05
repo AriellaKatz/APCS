@@ -12,7 +12,7 @@ It's ok for you to have a classes with the same name as long as they're in
 UNRESOLVED QUESTIONS:
 */
 
-public class BigSibNew {
+public class BigSib {
  public static String greet(String name) {
   String greeting = "What's up, " + name;
   return greeting;
