@@ -8,8 +8,8 @@ This is a revised version of Greet.java from directory 09_bigsib
 
 public class Greet{
  public static void main(String[] args) {
-  System.out.println(BigSibNew.greet("Crosby"));
-  System.out.println(BigSibNew.greet("Stills"));
-  System.out.println(BigSibNew.greet("Nash"));
+  System.out.println(BigSib.greet("Crosby"));
+  System.out.println(BigSib.greet("Stills"));
+  System.out.println(BigSib.greet("Nash"));
  }
 }
