@@ -1,14 +1,14 @@
 /*
-Excellent Apples: Ariella Katz, Tom, Alif 
+Excellent Apples: Ariella Katz, Tom, Alif, Grippy
 APCS
 HW13 -- Constructor methods
 */
 
 /*
 DISCO:
-
+Constructor methods let us choose what the default value of an instance variable is.
 QCC:
-
+How does the computer know to invoke the constructor method whenever a new instance of BigSib is created?
 */
 
 public class BigSib {
