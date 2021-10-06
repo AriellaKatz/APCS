@@ -5,3 +5,9 @@ Occurs when you issue the command
 	$ java class.java
 Be sure that when you're running the program (aka when you use the command 
  java instead of javac), you only provide the class name (sans .java).
+
+error: non-static variable helloMsg cannot be referenced from a static context
+Occurs when an instance variable is referenced inside a method listed as 
+ static. The purpose of an instance variable is that its value is unique for
+ each instance of its class, and having it in a static method prevents its
+ value from changing.
