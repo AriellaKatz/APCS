@@ -2,6 +2,7 @@
 Phase 0: Ariella Katz, Tom, Jacob Kirmayer, Jacob Jr, Nafiz Labib, Martha
 APCS
 HW12 -- Instance variables
+2021-10-05
 worked with Kaitlin Ho, Ziying Jain
 */
 
