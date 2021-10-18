@@ -61,6 +61,8 @@ public class BankAccount{
     balance = newBalance;
     return balance;
   }
+ 
+ //------------------------------------------------
 
   public void deposit(double depositAmount){
     balance = balance + depositAmount;
