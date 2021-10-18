@@ -41,6 +41,8 @@ public class BankAccount{
   private int acctNum;
   private double balance;
 
+ //------------------------------------------------
+
   public String setName(String newName){
     name = newName;
     return name;
