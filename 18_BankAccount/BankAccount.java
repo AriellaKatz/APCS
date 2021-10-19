@@ -1,5 +1,5 @@
 /*
-UnicornHead: Melody, Ariella, Lior, Tom, Toothless, Ollie
+UnicornHead: Melody Lew, Ariella Katz, Lior Polischouk, Tom, Toothless, Ollie
 APCS
 HW18 - CPA-One
 2021-10-14
@@ -10,7 +10,7 @@ DISCO
  0. We can call non-static methods from main by creating a new instance of the class (call this object 
     "account") and calling account.methods. 
  1. We can convert a value to a different datatype by preceding the value with the new datatype in ().
- 2. /n can be used to make a new line.
+ 2. \n can be used to make a new line.
  3. You can have non-String values in a String as long as they are concatenated somewhere with a
     String.
 
