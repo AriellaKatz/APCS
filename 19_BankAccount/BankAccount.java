@@ -9,9 +9,12 @@ HW19 - Mo Money Mo Problems ...MORE AWESOME
 DISCO
  0. If an if statement contains more than one boolean expression, the expressions should
     all be surrounded with parentheses.
+ 1. You do not need a return statement inside both the if and else statement, as long as 
+    there is a return statement at the end of the conditional.
 
 QCC
  0. Why does Java accept 12345678 but throws the error "integer too large" with 012345678?
+ 1. Why is the balance 100.52000000000001 when the input was only 100.51?
 
 */
 
