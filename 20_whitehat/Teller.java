@@ -7,7 +7,8 @@ hw20 - External Audit
 
 /*
 DISCO:
-
+0. Our conditional statements can be rewritten to contain only if statements, excluding
+   the else statements.
 QCC:
 0. Why do their methods return the previous value of the attribute instead of the updated
    one? Yes, the value of the attribute is updated, which is the most important thing,
