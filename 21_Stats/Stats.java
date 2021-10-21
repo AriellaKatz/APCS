@@ -10,6 +10,8 @@ DISCO:
 0. For the geoMean methods that use Math.pow, the power has to be written as 1.0/3.0 
    instead of 1/3, or it returns 1, because the / operator sees two int operands and 
    returns an int, 0, and anything to the 0 power is 1.
+   Integer division rounds down towards 0, while double division gives a more precise
+   approximation.
 QCC:
 0. How can we make this compilable without using typecasting, specifically for the methods
    involving means (arithmetic or geometric)?
