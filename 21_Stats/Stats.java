@@ -24,7 +24,8 @@ import java.lang.Math;
 public class Stats {
 
   public static int mean(int a, int b) {
-    int avg = (int) (a+b)/2;
+//    int avg = (int) (a+b)/2;
+    int avg = (a+b)/2; //don't need to worry about typecasting b/c int division
     return avg;
   }
 
@@ -52,8 +53,9 @@ public class Stats {
   }
 
   public static int geoMean(int a, int b) {
-    int mean = (int) Math.sqrt(a*b);
-    return mean;
+  //  int mean = (int) Math.sqrt(a*b);
+   int mean = Math.round(Math.round(Math.sqrt(a*b))); //Math.round returns a long , second converts to int
+   return mean;
   }
 
   public static double geoMean(double a, double b) {
@@ -90,7 +92,7 @@ public class Stats {
   }
 
   public static int geoMean(int a, int b, int c) {
-    int mean = (int) Math.pow(a*b*c, 1.0/3.0);
+    int mean = Math.round(Math.round(Math.pow(a*b*c, 1.0/3.0)));
     return mean;
   }
 
