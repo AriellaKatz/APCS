@@ -96,6 +96,12 @@ public class Coin {
     if (name == "quarter"){
     	value = 0.25;
     	}
+    if (name == "half dollar"){
+	value = 0.50;
+	}
+    if (name == "dollar"){
+	value = 1.00;
+	}
   }
 
 
