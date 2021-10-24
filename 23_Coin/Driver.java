@@ -26,7 +26,6 @@ public class Driver {
       //test toString() methods of each Coin
       System.out.println("mine: " + mine);
       System.out.println("yours: " + yours);
-    /*===================TOP==========================
       System.out.println("wayne: " + wayne);
       //test flip() method
       System.out.println("\nAfter flipping...");
@@ -41,6 +40,7 @@ public class Driver {
       else {
         System.out.println( "No match. Firestarter you can not be." );
       }
+    /*===================TOP==========================
      ====================BOTTOM======================*/
 
   }//end main()

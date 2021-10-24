@@ -13,7 +13,7 @@ public class Coin {
   int flipCtr;
   int headsCtr;
   int tailsCtr;
-  double bias;
+  double bias = 0.50; //didn't know where else to set this
 
 
   /***
@@ -50,8 +50,6 @@ public class Coin {
   public Coin( String s, String nowFace ) {
     name = s;
     upFace = nowFace;
-//setting bias here because we don't know where else to do it
-    bias = 0.50;
   }
 
 
@@ -150,7 +148,7 @@ public class Coin {
    * or both showing tails. False otherwise.
    ***/
   public boolean equals( Coin other ) {
-    if (other.name == name){
+    if (other.upFace == upFace){
 	return true;
 	}
     else {
