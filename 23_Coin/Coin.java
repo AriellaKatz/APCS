@@ -1,8 +1,22 @@
-/***
- *  class Coin
- *  by Clyde "Thluffy" Sinclair
- *  SKELETON
- ***/
+/*
+oops: Ariella Katz, Kaitlin Ho, Tom, Apple
+APCS
+HW23 -- What Does Equality Look Like?
+2021-10-22
+time spent: 1.0 hours
+*/
+
+/*
+DISCO:
+0. System.out.println(objectName) automatically call's Java's toString, at which point Java 
+   looks for a toString method and sees that we have an overriden one... and uses that instead
+   (see QCC).
+QCC:
+0. How can we make it so that creating a new objecting and printing that object doesn't 
+   automatically call our overridden toString?
+1. Why is it that Java uses our overriden toString and not Java's toString, since they both 
+   have the same parameter lists?
+*/
 
 public class Coin {
 
