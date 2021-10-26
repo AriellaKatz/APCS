@@ -1,22 +1,24 @@
 /*
 oops: Ariella Katz, Kaitlin Ho, Tom, Apple
 APCS
-HW23 -- What Does Equality Look Like?
-2021-10-22
-time spent: 1.0 hours
+HW24 -- Get It While You Can
+2021-10-25
+time spent: 1.1 hours
 */
 
 /*
 DISCO:
-0. System.out.println(objectName) automatically call's Java's toString, at which point Java 
-   looks for a toString method and sees that we have an overriden one... and uses that instead
-   (see QCC).
+0. In a while loop, combining boolean expressions with || ("or") will cause the loop to run
+   if at least one expression is true. Using && will cause the loop to run only if all of the
+   individual expressions are true.
+1. Using =+ instead of += will get past the compiler, but it will cause the code to run for
+   an indefintely long amount of time.
 QCC:
-0. How can we make it so that creating a new objecting and printing that object doesn't 
-   automatically call our overridden toString?
-1. Why is it that Java uses our overriden toString and not Java's toString, since they both 
-   have the same parameter lists?
+0. If you don't include "public" or "private" when declaring an instance variable, is it
+   automatically public?
 */
+
+//This edition of Coin.java has been improved based on code provided by Mr. Mykolyk.
 
 public class Coin {
 
