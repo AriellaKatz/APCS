@@ -96,12 +96,12 @@ public static int max(int a, int b, int c) {
 //GCD
   
 public static int gcd(int a, int b) {
-    if (a == 0) { return b; }
-    if (b == 0) { return a; }
     if ((a < 0 || b < 0) || (b == 0 && a == 0)) {
       System.out.print("Error: Invalid input(s) -> ");
       return 0;
     }
+    if (a == 0) { return b; }
+    if (b == 0) { return a; }
 
     int n = 1;
     int output = 0;
@@ -115,12 +115,12 @@ public static int gcd(int a, int b) {
   }
 
   public static int gcdER(int a, int b) {
-    if (a == 0) { return b; }
-    if (b == 0) { return a; }
     if ((a < 0 || b < 0) || (b == 0 && a == 0)) {
       System.out.print("Error: Invalid input(s) -> ");
       return 0;
     }
+    if (a == 0) { return b; }
+    if (b == 0) { return a; }
 
     if (a == b) { 
       return a;
@@ -138,12 +138,12 @@ public static int gcd(int a, int b) {
   }
 
   public static int gcdEW(int a, int b) {
-    if (a == 0) { return b; }
-    if (b == 0) { return a; }
     if ((a < 0 || b < 0) || (b == 0 && a == 0)) {
       System.out.print("Error: Invalid input(s) -> ");
       return 0;
     }
+    if (a == 0) { return b; }
+    if (b == 0) { return a; }
 
     int n = 0;
     if (a < b) { 
