@@ -24,11 +24,14 @@
 
 /*
 DISCO:
-0.
+0. indexOf() is used to return the index position of a char or substring in another string.
+1. final means that this method cannot by overridden by subclasses. 
+2. indexOf() returns -1 if the char or substring is not in the string.
 QCC:
 0. Will y never be considered a vowel?
 1. How will these methods combine to create Pig Latin?
 2. indexOf() is used for arrays. Are Strings types of arrays?
+3. How do we return the last occurrence of a char/string (since indexOf() returns the first)?
 */
 
 public class Pig
