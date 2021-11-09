@@ -32,7 +32,6 @@ Punctuation
 Apostrophes
 Numbers
 Words with no vowels
-Make code readable (main() especially)
 */
 
 /*
@@ -154,31 +153,17 @@ public class Pig
 
     String ans = "";
 
-    if ( beginsWithVowel(w) ) { 
-      if (isPunc(w.substring(w.length()-1))) {
-        ans = w.substring(0,w.length()-1) + "way" + w.substring(w.length()-1);
-      }
-      else {ans = w + "way";} 
-    }
+    if ( beginsWithVowel(w) ) { ans = w + "way"; }
 
     else {
       int vPos = w.indexOf( firstVowel(w) );
       if (beginsWithUpper(w)) {
-        if (!hasPunc(w)) {
-          ans = (w.substring(vPos, vPos+1)).toUpperCase() + w.substring(vPos+1)
-          + (w.substring(0,vPos)).toLowerCase() + "ay";
-        }
-        else {ans = (w.substring(vPos, vPos+1)).toUpperCase() + w.substring(vPos+1,w.length()-1)
-              + (w.substring(0,vPos)).toLowerCase() + "ay" + w.substring(w.length()-1);}
+        ans = (w.substring(vPos, vPos+1)).toUpperCase() + w.substring(vPos+1)
+        + (w.substring(0,vPos)).toLowerCase() + "ay";
       }
-      else {
-        if (!hasPunc(w)) { 
-          ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
-        }
-        else {ans = w.substring(vPos,w.length()-1) + w.substring(0,vPos) + "ay" + 
-              w.substring(w.length()-1);}
+      else { ans = w.substring(vPos) + w.substring(0,vPos) + "ay"; }
     }
-    }
+
     return ans;
   }
 
