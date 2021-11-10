@@ -38,15 +38,12 @@ Improve readability (with more methods so nothing is too crowded)
 /*
 DISCO:
 0.
-
 QCC:
 0. How to use the scanner to read a file?
-
 */
 
-/*import java.util.Scanner;
-import java.io.File;
-import java.io.FileNotFoundException;*/
+
+import java.util.Scanner;  //Scanner is not part of java's std lib
 
 public class Pig
 {
@@ -231,23 +228,17 @@ public class Pig
 	     return isUpperCase(w.substring(0,1) );
     }
 
+
+
   public static void main( String[] args ) {
 
-/*     File words = new File("in.words");
-     Scanner scanner = new Scanner(words);
-     String[] wordList = new String[5];
-     int n = 0;
-     while (n < 5) {
-       String word = scanner.nextLine();
-       wordList[n] = word;
-       n++;
-     }
-     String results = "";
-     for (int i = 0; i < wordList.length; i++) {
-       results += (engToPig(wordList[i]) + "\n");
-     }
-     System.out.println(results);
-*/
+//instantiate a Scanner with STDIN as its bytestream
+    Scanner sc = new Scanner( System.in );
+
+    while( sc.hasNext() ) {
+      System.out.println(engToPig(sc.next()) );
+      System.out.println(engToPig(sc.next()) );
+      }
 
      for( String word : args ) {
        System.out.println( "allVowels \t" + allVowels(word) );
@@ -260,4 +251,3 @@ public class Pig
    }//end main()
 
 }//end class Pig
-
