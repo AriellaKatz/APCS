@@ -42,6 +42,8 @@ DISCO:
 QCC:
 0. How to use the scanner to read a file?
 
+NEW IN:
+Debug Thluffy's code and add instance variables and methods from skeleton
 */
 
 public class Pig
