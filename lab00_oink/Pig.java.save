@@ -208,25 +208,14 @@ public class Pig
     return ans;
   }
 
-   public static String phraseToPig (String phrase) {
-    if (phrase.indexOf(" ") != -1) {
+   public static String phraseToPig (String phrase){
       String ans = "";
       int i = 0;
-      int len = phrase.length();
-       while (i < len) {
-        if (phrase.indexOf(" ") != -1) {
-          int n = phrase.indexOf(" ");
-          ans += engToPig(phrase.substring(0,n)) + " ";
-          phrase = phrase.substring(n+1);
-          i = n+1;
-         }
-        else {
-          ans += engToPig(phrase);
-          i = len;
-        }
-       }
-      return ans; }
-     else {return engToPig(phrase); }
+      while (i < phrase.length()) {
+        int n = phrase.indexOf(" ");
+        ans += phrase.substring(0, n) + " ";
+        phrase = phrase.substring(n+1
+      }
    }
 
   /*=====================================
@@ -283,7 +272,7 @@ public class Pig
     Scanner sc = new Scanner( System.in );
 
     while( sc.hasNext() ) {
-      System.out.println(phraseToPig(sc.nextLine()));
+      System.out.println(engToPig(sc.nextLine()));
       }
 
      for( String word : args ) {
