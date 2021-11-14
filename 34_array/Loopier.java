@@ -1,3 +1,27 @@
+/*
+ABA: Ariella Katz, Alif Rahman, Brianna Tieu, Tom, Grippy, Pepe
+APCS
+HW34 -- A Pirate's Life for Me
+2021-11-12
+time spent: 0.5hrs
+*/
+
+/*
+DISCO:
+0. With both iterative loops and recursion, the idea is to keep repeating a procedure but with
+   a different value of a certain variable each time. In iterative loops, you can create a new
+   variable to increment with each iteration, but with recursion, you're limited to only being
+   able to change the arguments of the method (which you do when you make the recursive call).
+   Iteration is probably more favorable than recursion in cases like this one, where ideally the
+   variable that you're changing isn't one of the parameters of the method (here, it's easiest
+   to change the index, i, of the array, but since you can't do that recursively, you're forced
+   to make a new array and check the same index for that one).
+QCC:
+0. We've seen a situation where an iterative approach is far simpler than a recursive approach,
+   given the limitations of recursion described in DISCO 0, but what limitations are there of
+   iterative approaches that would sometimes make recursion the only option?
+*/
+
 public class Loopier {
 
 	public static void addInts (int[] array) {
