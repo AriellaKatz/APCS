@@ -58,19 +58,22 @@ sum3([7, 0, 0]) → 7
 
 	public static void main(String[] args) {
 		Array1 test = new Array1();
-		System.out.println(test.firstLast6({1, 2, 6});
-		System.out.println(test.firstLast6({6, 1, 2, 3});
-		System.out.println(test.firstLast6({13, 6, 1, 2, 3});
-		System.out.println(test.sameFirstLast({1, 2, 3});
-                System.out.println(test.sameFirstLast({1, 2, 1});
-                System.out.println(test.sameFirstLast({1, 2, 3, 1});
+		System.out.println(test.firstLast6(new int[] {1, 2, 6}));
+		System.out.println(test.firstLast6(new int[] {6, 1, 2, 3}));
+		System.out.println(test.firstLast6(new int[] {13, 6, 1, 2, 3}));
+		System.out.println(test.sameFirstLast(new int[] {1, 2, 3}));
+                System.out.println(test.sameFirstLast(new int[] {1, 2, 1}));
+                System.out.println(test.sameFirstLast(new int[] {1, 2, 3, 1}));
 		System.out.println(test.makePi());
-		System.out.println(test.commonEnd({1, 2, 3}, {7, 3}));
-		System.out.println(test.commonEnd({1, 2, 3}, {7, 3, 2}));
-		System.out.println(test.commonEnd({1, 2, 3}, {1, 3}));
-		System.out.println(test.sum3({1, 2, 3}));
-		System.out.println(test.sum3({5, 11, 2}));
-		System.out.println(test.sum3({7, 0, 0}));
+		System.out.println(test.commonEnd(new int[] {1, 2, 3},
+		new int[] {7, 3}));
+		System.out.println(test.commonEnd(new int[] {1, 2, 3},
+		new int[] {7, 3, 2}));
+		System.out.println(test.commonEnd(new int[] {1, 2, 3},
+		new int[] {1, 3}));
+		System.out.println(test.sum3(new int[] {1, 2, 3}));
+		System.out.println(test.sum3(new int[] {5, 11, 2}));
+		System.out.println(test.sum3(new int[] {7, 0, 0}));
 	}
 
 }
