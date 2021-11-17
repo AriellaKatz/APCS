@@ -1,27 +1,34 @@
 /*****************************************************
- * Clyde "Thluffy" Sinclair
- * APCS pd00
+ * ABA - Ariella Katz, Alif Rahman, Brianna Tieu, Tom, Grippy, Pepe
+ * APCS
  * HW38 -- Shmoney
- * 2021-11-18
- *
- * class Slots
- * skeleton
+ * 2021-11-17
  *****************************************************/
+
+/*
+DISCO:
+0. Printing some String with an object in it automatically calls the toString() method of
+   that class. If there is an overriden toString() method (as there is in this class), Java
+   will go to that one.
+QCC:
+0. Why are some methods private and some public? (What benefit is there to making it
+   private?)
+*/
 
 public class Slots {
 
   //instance variable to represent master copy for slot machine
   private static final String[] FRUITS = {
-    "lime", "lime", "lime", 
-    "lemon", "lemon", "lemon", 
+    "lime", "lime", "lime",
+    "lemon", "lemon", "lemon",
     "cherry", "cherry", "cherry",
     /*
       add extra fruits until your heart is content...
       Some suggestions:
-    "orange", "orange", "orange", 
-    "grapefruit", "grapefruit", "grapefruit", 
-    "tangerine", "tangerine", "tangerine", 
-    "ugli", "ugli", "ugli", 
+    "orange", "orange", "orange",
+    "grapefruit", "grapefruit", "grapefruit",
+    "tangerine", "tangerine", "tangerine",
+    "ugli", "ugli", "ugli",
     */
     "peach", "peach", "peach"
   };
@@ -48,12 +55,12 @@ public class Slots {
 
   /*=====================================
     String toString() -- overrides inherited toString()
-    pre:  
+    pre:
     post: returns String of elements in slots 0 thru 2, separated by tabs
     =====================================*/
   public String toString()
   {
-   return ("" + _fruits[0] + "\t" + _fruits[1] + "\t" + _fruits[2]); 
+   return ("" + _fruits[0] + "\t" + _fruits[1] + "\t" + _fruits[2]);
   }
 
 
@@ -64,7 +71,10 @@ public class Slots {
     =====================================*/
   private void swap( int i, int j )
   {
-
+   String fruitI = _fruits[i];
+   String fruitJ = _fruits[j];
+   _fruits[i] = fruitJ;
+   _fruits[j] = fruitI;
   }
 
 
@@ -78,8 +88,11 @@ public class Slots {
     // A simple approach to shuffling:
     // iterate through the array, swapping
     // the val at each index with a randomly chosen other index
- //   for(  )
- //    swap(  );
+    for(int i = 0; i < _fruits.length; i++)
+    {
+     int j = (int)(Math.random() * (_fruits.length - 1));
+     swap(i, j );
+    }
   }
 
 
@@ -92,8 +105,7 @@ public class Slots {
   public boolean jackpot()
   {
     boolean retBoo = false;
-
-
+    retBoo = ((_fruits[0] == _fruits[1]) && (_fruits[1] == _fruits[2]));
     return retBoo;
   }
 
@@ -102,25 +114,22 @@ public class Slots {
     boolean miniWin() -- checks for a winning combo
     pre:  _fruits is existing array
     post: returns true if first 3 slots represent winning combo,
-    or if first 3 slots mutually distinct, 
-    false otherwise
-    =====================================*/
+    or if first 3 slots mutually distinct,
+    false otherwise    =====================================*/
   public boolean miniWin()
   {
-    boolean retBoo = false; //?
-
-
+    boolean retBoo = false;
+    retBoo = (((_fruits[0] == _fruits[1]) && (_fruits[1] == _fruits[2])) ||
+              ((_fruits[0] != _fruits[1]) && (_fruits[1] != _fruits[2]) &&
+               (_fruits[0] != _fruits[2])));
     return retBoo;
   }
 
 
   //main() method for testing
   public static void main( String[] args ) {
-	Slots test = new Slots();
-	System.out.println(test.toString());
     //usage: move bar below down 1 line at a time to test functionality...
 
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Slots machine01 = new Slots();
     Slots machine02 = new Slots();
     //test to verify slot machines function indepently
@@ -156,6 +165,7 @@ public class Slots {
     System.out.println( "====================================" );
     System.out.println( "Your spin..." + "\t" + machine01 );
     System.out.println( "JACKPOT!\n" );
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main
 
