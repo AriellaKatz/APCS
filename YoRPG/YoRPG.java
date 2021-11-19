@@ -16,7 +16,7 @@
  * 0. What is IOException e?
  * 1. How is d2 determined?
  * 2. How do InputStreamReader and BufferedReader work together?
- * 3. 
+ * 3. Added {} to improve readability of if/else statements and get rid of an error
  **********************************************/
 
 import java.io.*;
@@ -104,7 +104,7 @@ public class YoRPG {
     int d1, d2;
 
     if ( Math.random() >= ( difficulty / 3.0 ) )
-	    System.out.println( "\nNothing to see here. Move along!" );
+	 {  System.out.println( "\nNothing to see here. Move along!" ); }
     else {
 	    System.out.println( "\nLo, yonder monster approacheth!" );
 
@@ -123,10 +123,9 @@ public class YoRPG {
         catch ( IOException e ) { }
 
         if ( i == 2 )
-          pat.specialize();
-            }
+          { pat.specialize(); }
         else
-          pat.normalize();
+          { pat.normalize(); }
 
         d1 = pat.attack( smaug );
         d2 = smaug.attack( pat );
@@ -167,7 +166,6 @@ public class YoRPG {
     //As usual, move the begin-comment bar down as you progressively 
     //test each new bit of functionality...
 
-    /*================================================
     //loading...
     YoRPG game = new YoRPG();
 
@@ -181,6 +179,7 @@ public class YoRPG {
     }
 
     System.out.println( "Thy game doth be over." );
+    /*================================================
 	  ================================================*/
   }//end main
 

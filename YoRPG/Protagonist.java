@@ -26,7 +26,9 @@ public class Protagonist {
 	}
 
 	public int attack(Monster smaug) {
-		smaug.hp = smaug.hp - (int)(Math.random()*50)*attackLevel;
+		int damage = (int)(Math.random()*50)*attackLevel;
+		smaug.hp = smaug.hp - damage;
+		return damage;
 	}
 
 }

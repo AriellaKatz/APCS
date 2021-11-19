@@ -2,8 +2,8 @@ public class Monster {
 
 	public int hp;
 
-	public Monster{
-		hp = (int)(Math.random()*100) + 10
+	public Monster (){
+		hp = (int)(Math.random()*100) + 10;
 	}
 
 	public boolean isAlive() {
@@ -11,7 +11,9 @@ public class Monster {
 	}
 
 	public static int attack(Protagonist pat) {
-		pat.hp = pat.hp - (int)(Math.random()*25)*pat.attackLevel;
+		int damage = (int)(Math.random()*25)*pat.attackLevel;
+		pat.hp = pat.hp - damage;
+		return damage;
 	}
 
 }
