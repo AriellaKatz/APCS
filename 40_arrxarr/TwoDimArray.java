@@ -8,6 +8,7 @@
 // APCS 
 // HW40 -- 2D arrays
 // 2021-11-29
+// time spent: 0.5hrs
 
 /*
 QCC:
