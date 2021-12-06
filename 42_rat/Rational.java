@@ -82,7 +82,7 @@ public class Rational {
   }
 
   public void reduce() {
-    int gcd = gcd(this.p, this.q);
+    int gcd = gcd();
     this.p = this.p/gcd;
     this.q = this.q/gcd;
   }
@@ -105,6 +105,11 @@ public class Rational {
     if (b == 0) { return a; }
     if (a <= b) { return gcd(a, b-a); }
     else { return gcd(a-b, b); }
+  }
+
+  public int gcd() {
+    int gcd = gcd(this.p, this.q);
+    return gcd;
   }
 
   public static void main(String[] args) {
