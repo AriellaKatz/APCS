@@ -1,7 +1,8 @@
-'// Clyde "Thluffy" Sinclair
-// APCS1 pd0
+// ABA - Ariella Katz, Alif Rahman, Brianna Tiue, Tom, Grippy, Pepe
+// APCS
 // HW44 -- expanding SuperArray functionality, encapsulation
-// 2021-12-08w
+// 2021-12-07
+// time spent: 0.5hrs
 
 /***************************
  * class SuperArray version 2.0
@@ -14,6 +15,19 @@
  * adding an element at specified index
  * removing an element at specified index
  ***************************/
+
+/*
+DISCO:
+0. For the add_at_Index method, we cannot work forwards and copy each
+   preceding value in the array,as it would continuously copy the same
+   number until the length of the array is equal to _size.
+1. For the remove method, however, we can work forwards, as we are
+   taking the proceeding value in the array for each value after the
+   index.
+QCC:
+0. Can we create new arrays to store the values of _data when creating
+   methods add() and remove()?
+*/
 
 public class SuperArray
 {
@@ -68,6 +82,7 @@ public class SuperArray
   {
     int temp = _data[index];
     _data[index] = newVal;
+    if (index >= _size) { _size ++; }
     return temp;
   }
 
@@ -75,7 +90,7 @@ public class SuperArray
   //adds an item after the last item
   public void add( int newVal )
   {
-    if (size_ !< _data.length) { expand(); }
+    if (_size ==  _data.length) { expand(); }
     _data[_size] = newVal;
     _size++;
   }
@@ -84,10 +99,12 @@ public class SuperArray
   //inserts an item at index
   public void add( int index, int newVal )
   {
-    if (size_ !< _data.length) { expand(); }
-    for (i = _size; i > index; i--) {
-      _data
+    if (!(_size < _data.length - 1)) { expand(); }
+    for (int i = _size; i > index; i--) {
+      _data[i] = _data[i-1];
     }
+    _data[index] = newVal;
+    _size++;
   }
 
 
@@ -95,14 +112,18 @@ public class SuperArray
   //shifts elements left to fill in newly-empted slot
   public void remove( int index )
   {
-    /* YOUR IMPLEMENTATION HERE */
+    for (int i = index; i < _size - 1; i++) {
+      _data[i] = _data[i+1];
+    }
+    _data[_size-1] = 0;
+    _size--;
   }
 
 
   //return number of meaningful items in _data
   public int size()
   {
-    /* YOUR IMPLEMENTATION HERE */
+    return _size;
   }
 
 
@@ -110,7 +131,6 @@ public class SuperArray
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
       SuperArray curtis = new SuperArray();
       System.out.println( "Printing empty SuperArray curtis..." );
       System.out.println( curtis );
@@ -151,6 +171,7 @@ public class SuperArray
       mayfield.add(1,77);
       System.out.println("Printing SuperArray mayfield post-insert...");
       System.out.println(mayfield);
+    /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~*/
   }//end main()
 
