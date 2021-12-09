@@ -20,6 +20,11 @@
 DISCO:
 0. Interfaces have different formatting conventions than classes.
    Methods are not followed by {}, but are rather followed by ;.
+1. If the implemented methods do not have the same returntype as
+   the abstract methods in the interface, it will throw an error.
+2. Implemented methods cannot override abstract methods; you need
+   to implement the interface's abstract methods with the same
+   parameters, and then you can override that implemented method.
 QCC:
 0. Since the methods in interfaces have basically no information,
    are interfaces essentially just checklists to ensure that when
