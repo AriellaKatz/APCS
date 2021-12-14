@@ -69,12 +69,20 @@ public class GuessNumber
       _guessCtr++;
       _hi = guess - 1;
       System.out.println("Too high");
+      if (_hi == _lo) {
+        System.out.println("You've failed!");
+        return;
+      }
       playRec();
     }
     else {
       _guessCtr++;
       _lo = guess + 1;
       System.out.println("Too low");
+      if (_hi == _lo) {
+        System.out.println("You've failed!");
+        return;
+      }
       playRec();
     }
   }
@@ -102,10 +110,20 @@ public class GuessNumber
       else if (guess > _target) {
         System.out.println("Too high");
         _hi = guess - 1;
+        if (_hi == _lo) {
+          System.out.println("You've failed!");
+          _guessCtr++;
+          break;
+        }
       }
       else {
         System.out.println("Too low");
         _lo = guess + 1;
+        if (_hi == _lo) {
+          System.out.println("You've failed!");
+          _guessCtr++;
+          break;
+        }
       }
 
       _guessCtr++;
