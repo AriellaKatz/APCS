@@ -1,13 +1,11 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
-// HW47 -- ?
-// 2021-12-15w
-// time spent: _ hrs
+// ABA - Ariella Katz, Alif Rahman, Brianna Tieu, Tom, Grippy, Pepe
+// APCS
+// HW47 -- Guess Again
+// 2021-12-14
+// time spent: 0.5 hrs
 
 /***
  * class GuessNumber -- fun fun fun!
- *
- * SKELETON
  *
  * eg, sample interaction with end user:
  *
@@ -19,10 +17,18 @@
  * Correct! It took 3 guesses
  ***/
 
-/***
-    DISCO:
-    QCC:
- ***/
+/*
+DISCO:
+0. Using true as the condition for a while loop causes it to run until it
+   sees the command break.
+1. break is used for exiting a loop while return is used for exiting the
+   invocation of a method. If the entire method is a loop, either could be
+   used.
+QCC:
+0. Are there problems where there might be both a recursive and an iterative
+   solution but one is more efficient than the other for any/all cases?
+*/
+
 import java.util.Scanner;
 
 public class GuessNumber
@@ -70,7 +76,7 @@ public class GuessNumber
       _hi = guess - 1;
       System.out.println("Too high");
       if (_hi == _lo) {
-        System.out.println("You've failed!");
+        System.out.println("You've failed! The correct number was " + _target);
         return;
       }
       playRec();
@@ -80,7 +86,7 @@ public class GuessNumber
       _lo = guess + 1;
       System.out.println("Too low");
       if (_hi == _lo) {
-        System.out.println("You've failed!");
+        System.out.println("You've failed! The correct number was " + _target);
         return;
       }
       playRec();
@@ -111,7 +117,7 @@ public class GuessNumber
         System.out.println("Too high");
         _hi = guess - 1;
         if (_hi == _lo) {
-          System.out.println("You've failed!");
+          System.out.println("You've failed! The correct number was " + _target);
           _guessCtr++;
           break;
         }
@@ -120,7 +126,7 @@ public class GuessNumber
         System.out.println("Too low");
         _lo = guess + 1;
         if (_hi == _lo) {
-          System.out.println("You've failed!");
+          System.out.println("You've failed! The correct number was " + _target);
           _guessCtr++;
           break;
         }
