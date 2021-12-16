@@ -1,3 +1,27 @@
+/*
+ABA - Ariella Katz, Alif Rahman, Brianna Tieu, Tom, Grippy, Pepe
+APCS
+HW 48 - Halving the Halves
+2021-12-15
+time spentL 0.5hrs
+*/
+
+/*
+DISCO:
+0. By replacing m with lo or hi, depending on what half the target is in,
+   lo and hi gradually approach each other, and the idea is that eventually,
+   we'll either guess the correct element at m, or eventually lo and hi will
+   be equal and the target will be there, or worse case, lo and hi will
+   surpass each other, which would mean that the target was never there.
+QCC:
+0. It's ok for lo to = high as long as neither surpasses the other.
+1. Would the iterative or recursive version be more efficient?
+2. Is Comparable just an umbrella term for things that have numerical
+   values (Integers/ints, Doubles/doubles, Bytes/bytes, Shorts/shorts,
+   Longs/longs, Floats/floates; everything except Booleans/booleans and
+   Chars/chars)?
+*/
+
 /**
    class BinSearch
    Binary search on array of Comparables
@@ -118,7 +142,7 @@ public class BinSearch
     for( int i = 0; i < iArr3.length; i++ ) {
     iArr3[i] = i * 2;
     }
-    printArray( iArr3 );
+//    printArray( iArr3 );
     System.out.println( "iArr3 sorted? -- " + isSorted(iArr3) );
     //search for 6 in array 
     System.out.println( "Expecting 0... " + binSearch(iArr2,2) );
