@@ -3,7 +3,7 @@ public class Driver {
 	public static void main(String[] args) {
 		Rational a = new Rational(1, 2);
 		Rational b = new Rational(3, 4);
-		Rational c = new Rational(3, 7);
+		Rational c = new Rational(3, 6);
 		String d = new String("5, 6");
 
 		System.out.println("1/2 = 3/4? " + a.equals(b));
