@@ -12,10 +12,10 @@ DISCO:
    you've confirmed that the Object is a Rational and it'll think it could be
    anything.
 QCC:
-0.
+0. What is the purpose of equals() when we can just use compareTo()?
 */
 
-public class Rational {
+public class Rational implements Comparable{
   protected int p;
   protected int q;
 
