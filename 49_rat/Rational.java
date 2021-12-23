@@ -13,6 +13,7 @@ DISCO:
    anything.
 QCC:
 0. What is the purpose of equals() when we can just use compareTo()?
+1. Our algorithm for compareTo() only works if both Rationals are positive.
 */
 
 public class Rational implements Comparable{
@@ -92,7 +93,7 @@ public class Rational implements Comparable{
     //Key: Returns 0 if ==, 1 if Q is smaller, -1 if Q is bigger
     subtract(r);
     if (this.p > 0) { return 1; }
-    if (this.p == 0) { return 0; }
+    else if (this.p == 0) { return 0; }
     else { return -1; }
   }
 
@@ -103,8 +104,8 @@ public class Rational implements Comparable{
     }
 
     if (a == 0) { return b; }
-    if (b == 0) { return a; }
-    if (a <= b) { return gcd(a, b-a); }
+    else if (b == 0) { return a; }
+    else if (a <= b) { return gcd(a, b-a); }
     else { return gcd(a-b, b); }
   }
 
