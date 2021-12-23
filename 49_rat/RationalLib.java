@@ -205,9 +205,9 @@ public class RationalLib implements Comparable
   {
       RationalLib r = new RationalLib( 3, 7 );
       RationalLib s = new RationalLib();
-      RationalLib t = new RationalLib( 8, 5 );
+      RationalLib t = new RationalLib( -8, 5 );
 
-      RationalLib u = new RationalLib( -1, 2 );
+      RationalLib u = new RationalLib( 1, 2 );
       RationalLib v = new RationalLib( -2, 3 );
       RationalLib w = new RationalLib( -8, 12 );
 
@@ -283,6 +283,9 @@ public class RationalLib implements Comparable
 
       System.out.println( "r > t: " +  r.compareTo(t) );
       System.out.println( "r > s: " +  r.compareTo(s) );
+-120 / -280
+-120 / -280 in reduced form = 3 / 7
+r > t: 71
       System.out.println( "s > t: " +  s.compareTo(t) );
       //uncommenting the line below should trigger a runtime error
       //  System.out.println( "s > y: " +  s.compareTo(y) );
