@@ -81,8 +81,9 @@ public class BubbleSort
   //                Returns sorted copy of input ArrayList.
   public static ArrayList<Comparable> bubbleSort( ArrayList<Comparable> input )
   {
-    bubbleSortV(input);
-    return input;
+    ArrayList sorted = new ArrayList<Comparable>(input);
+    bubbleSortV(sorted);
+    return sorted;
   }
 
 
