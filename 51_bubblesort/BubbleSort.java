@@ -21,7 +21,6 @@
  * a1: The element at index p-1 is correct
  * q2: How many passes are necessary to completely sort?
  * a2: No more than length-1
- * 
  ******************************/
 
 import java.util.ArrayList;
@@ -57,7 +56,6 @@ public class BubbleSort
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
   // VOID version of bubbleSort
   // Rearranges elements of input ArrayList
   // postcondition: data's elements sorted in ascending order
@@ -75,7 +73,6 @@ public class BubbleSort
     if (swaps > 0) { bubbleSortV(data); }
   }
 
-
   // ArrayList-returning bubbleSort
   // postcondition: order of input ArrayList's elements unchanged
   //                Returns sorted copy of input ArrayList.
@@ -85,7 +82,6 @@ public class BubbleSort
     bubbleSortV(sorted);
     return sorted;
   }
-
 
   public static void main( String [] args )
   {
