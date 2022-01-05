@@ -1,15 +1,18 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
-// HW52 -- implementing selection sort
-// 2022-01-05w
-// time spent:  hrs
+// Erica's Fans and Hugo: Kaitlin, Ariella, Hugo
+// APCS pd06
+// HW52 -- Selection, Natch
+// 2022-01-05
+// time spent: 2 hrs
 
 /******************************
  *   class SelectionSort -- implements SelectionSort algorithm
  *
  * ALGO:
- * 
- * DISCO
+ * Find the minimum of the list and swap it with the first element.
+ * Repeat for all elements to the right of the minimum element.
+ *
+ * DISCO:
+ * The first parameter when declaring a new array list is the size
  *
  * QCC
  * q0: How many passes to sort n elements?
@@ -44,8 +47,7 @@ public class SelectionSort
   }
 
   //randomly rearrange elements of an ArrayList
-  public static void shuffle( ArrayList al )
-  {
+  public static void shuffle( ArrayList al ){
     int randomIndex;
     for( int i = al.size()-1; i > 0; i-- ) {
       //pick an index at random
@@ -65,48 +67,50 @@ public class SelectionSort
     //note: this version places greatest value at "rightmost" end
 
     //maxPos will point to position of SELECTION (greatest value)
-    int maxPos;
+    int maxPos = 0;
 
-    for(  ) {
-      System.out.println( "\nbegin pass " + (data.size()-pass) );//diag
+    for(int pass = 0; pass < data.size(); pass++) {
+        maxPos=0;
+	System.out.println( "\nbegin pass " + (data.size()-1-pass) );//diag
 
-      
-      for(  ) {
+      for(int i = 0; i < data.size()-pass; i++ ) {
+        if (data.get(i).compareTo(data.get(maxPos))>0) {
+          maxPos = i;
+        }
         System.out.println( "maxPos: " + maxPos );//diag
         System.out.println( data );//diag
 
-        
-      }
 
-      
+      }
+      Comparable x= data.get(data.size()-1-pass);
+      data.set(data.size()-1-pass, data.get(maxPos));
+      data.set(maxPos, x);
+
+
       System.out.println( "after swap: " +  data );//diag
     }
   }//end selectionSort
 
-
   // ArrayList-returning selectionSort
   // postcondition: order of input ArrayList's elements unchanged
   //                Returns sorted copy of input ArrayList.
+
   public static ArrayList<Comparable> selectionSort( ArrayList<Comparable> input )
   {
     //declare and initialize empty ArrayList for copying
     ArrayList<Comparable> data = new ArrayList<Comparable>();
-
     //copy input ArrayList into working ArrayList
     for( Comparable o : input )
       data.add( o );
-
     //sort working ArrayList
     selectionSortV( data );
-
     return data;
   }//end selectionSort
 
-
+	  
   public static void main( String [] args )
   {
-
-    /*===============for VOID methods=============
+       /*===============for VOID methods=============
     ArrayList glen = new ArrayList<Integer>();
     glen.add(7);
     glen.add(1);
@@ -116,14 +120,11 @@ public class SelectionSort
     System.out.println( "ArrayList glen before sorting:\n" + glen );
     selectionSortV(glen);
     System.out.println( "ArrayList glen after sorting:\n" + glen );
-
     ArrayList coco = populate( 10, 1, 1000 );
     System.out.println( "ArrayList coco before sorting:\n" + coco );
     selectionSortV(coco);
     System.out.println( "ArrayList coco after sorting:\n" + coco );
-      ============================================*/
-
-    /*==========for AL-returning methods==========
+     ============================================*/
       ArrayList glen = new ArrayList<Integer>();
       glen.add(7);
       glen.add(1);
@@ -135,16 +136,12 @@ public class SelectionSort
       System.out.println( "sorted version of ArrayList glen:\n"
       + glenSorted );
       System.out.println( "ArrayList glen after sorting:\n" + glen );
-
       ArrayList coco = populate( 10, 1, 1000 );
       System.out.println( "ArrayList coco before sorting:\n" + coco );
       ArrayList cocoSorted = selectionSort( coco );
       System.out.println( "sorted version of ArrayList coco:\n"
       + cocoSorted );
       System.out.println( "ArrayList coco after sorting:\n" + coco );
-      System.out.println( coco );
-      ============================================*/
-
   }//end main
 
 }//end class SelectionSort
