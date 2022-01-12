@@ -7,9 +7,12 @@ HW55 -- Never Fear, Big Oh Is Here!
 
 /*
 DISCO:
-
+0. The order of a function that is the sum of multiple terms is
+   the same as the order of the term that increases the fastest
+   as x approaches infinity.
 QCC:
-
+0. The order of logn + n is n because as n goes to infinity, n
+   increases faster than logn.
 */
 
 /**********************************************
@@ -158,11 +161,11 @@ BestCase Order: O(n)
  increases the number of shifts by n/2 and has no effect on the number
  of compares, so it is on the order of n.
 WorstCase: newVal belongs at index i = 0
-WorstCase Order: O(logn)
+WorstCase Order: O(n)
   Since newVal is at one of the extremes of the ArrayList, the maximum
  number of compares, (log_2)(n), are completed. Then, in _data.add(),
  all of the elements must be shifted over to the right. The total
- number of operations is (log_2)(n) + n, which is on the order of logn.
+ number of operations is (log_2)(n) + n, which is on the order of n.
 */
   // inserts newVal at the appropriate index
   // maintains ascending order of elements
