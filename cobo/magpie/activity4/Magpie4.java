@@ -10,6 +10,13 @@
  * @version April 2012
  *
  */
+
+ /*
+ * This structure does not work well when "I" and "you", for example,
+ * both appear in that order but are not part of the same clause. We
+ * could fix this by limiting the code to only do the I_You transformation
+ * if there is exactly one word between "I" and "you".
+ */
 public class Magpie4
 {
 	/**
@@ -53,6 +60,15 @@ public class Magpie4
 		{
 			response = transformIWantToStatement(statement);
 		}
+		else if (findKeyword(statement, "I want", 0) >= 0)
+		{
+			response = transformIWantStatement(statement);
+		}
+		else if (findKeyword(statement, "I", 0) >= 0
+			  && findKeyword(statement, "you", 0) >= 0)
+		{
+			response = transformIYouStatement(statement);
+		}
 
 		else
 		{
@@ -94,6 +110,40 @@ public class Magpie4
 		String restOfStatement = statement.substring(psn + 9).trim();
 		return "What would it mean to " + restOfStatement + "?";
 	}
+
+ 	private String transformIWantStatement(String statement)
+        {
+                //  Remove the final period, if there is one
+                statement = statement.trim();
+                String lastChar = statement.substring(statement
+                                .length() - 1);
+                if (lastChar.equals("."))
+                {
+                        statement = statement.substring(0, statement
+                                        .length() - 1);
+                }
+                int psn = findKeyword (statement, "I want ", 0);
+                String restOfStatement = statement.substring(psn + 7).trim();
+                return "Would you really be happy if you had " + restOfStatement + "?";
+        }
+
+	private String transformIYouStatement(String statement)
+        {
+                //  Remove the final period, if there is one
+                statement = statement.trim();
+		String lastChar = statement.substring(statement
+				.length() -1);
+		if (lastChar.equals("."))
+		{
+			statement = statement.substring(0, statement
+					.length() -1);
+		}
+                int psn0 = findKeyword (statement, "I", 0);
+		int psn1 = findKeyword (statement, "you", psn0+1);
+		String middleStatement = statement.substring((psn0+2),(psn1)).trim();
+                return "Why do you " + middleStatement + " me?";
+        }
+
 
 	
 	
