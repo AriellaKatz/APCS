@@ -1,10 +1,10 @@
 /**
  * A program to carry on conversations with a human user.
- * This version: 
+ * This version:
  * <ul><li>
- *    Uses advanced search for keywords 
- * </li></ul> 
- *    
+ *    Uses advanced search for keywords
+ * </li></ul>
+ *
  * @author Laurie White
  * @version April 2012
  */
@@ -12,7 +12,7 @@ public class Magpie3
 {
 	/**
 	 * Get a default greeting
-	 * 
+	 *
 	 * @return a greeting
 	 */
 	public String getGreeting()
@@ -22,7 +22,7 @@ public class Magpie3
 
 	/**
 	 * Gives a response to a user statement
-	 * 
+	 *
 	 * @param statement
 	 *            the user statement
 	 * @return a response based on the rules given
@@ -44,6 +44,32 @@ public class Magpie3
 				|| findKeyword(statement, "brother") >= 0)
 		{
 			response = "Tell me more about your family.";
+		}
+		else if (findKeyword(statement, "cat") >= 0
+		|| findKeyword(statement, "dog") >= 0
+		|| findKeyword(statement, "fish") >= 0)
+		{
+			response = "Tell me more about your pets.";
+		}
+		else if (findKeyword(statement, "Mykolyk") >= 0)
+		{
+			response = "They sound like a good teacher.";
+		}
+		else if ((statement.trim()).length() == 0)
+		{
+			response = "Say something, please.";
+		}
+		else if ((findKeyword(statement, "homework") >= 0))
+		{
+			response = "Homework is evil, how late do you stay up every night?";
+		}
+		else if ((findKeyword(statement, "track") >= 0))
+		{
+			response = "Lettuce is the best!";
+		}
+		else if ((findKeyword(statement, "Erica") >= 0))
+		{
+			response = "I heard that you are her fan.";
 		}
 		else
 		{
@@ -98,6 +124,11 @@ public class Magpie3
 
 			// If before and after aren't letters, we've
 			// found the word
+			// psn before is the first index of the first appearence of the  goal.
+			// If the keyword never appears, psn will become -1. If it does appear,
+			// psn becomes the first index of the keyword.
+			// before is the character right before the goal.
+			// after is the character right after the goal.
 			if (((before.compareTo("a") < 0) || (before
 					.compareTo("z") > 0)) // before is not a
 											// letter
@@ -122,7 +153,7 @@ public class Magpie3
 	 * is not a substring of a longer string (so, for
 	 * example, "I know" does not contain "no"). The search
 	 * begins at the beginning of the string.
-	 * 
+	 *
 	 * @param statement
 	 *            the string to search
 	 * @param goal
@@ -137,12 +168,12 @@ public class Magpie3
 
 	/**
 	 * Pick a default response to use if nothing else fits.
-	 * 
+	 *
 	 * @return a non-committal string
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -162,6 +193,14 @@ public class Magpie3
 		else if (whichResponse == 3)
 		{
 			response = "You don't say.";
+		}
+		else if (whichResponse == 4)
+		{
+			response = "Come see me in my office!";
+		}
+		else if (whichResponse == 5)
+		{
+			response = "You're boring.";
 		}
 
 		return response;
