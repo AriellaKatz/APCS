@@ -1,6 +1,6 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
-// L05 -- pulling it together
+// Team JEA (Jacob Kirmayer, Ethan Lam, Ariella Katz, Jacob Jr, Carl, Tom)
+// APCS pd6
+// L05 -- Stats on Stats
 // 2022-02-03r
 // time spent:  hrs
 
@@ -111,15 +111,25 @@ public class StatPrinter
   }
 
 
-//   //*************** QUESTION 04 **************************
-//   //postcond: returns list of modes in _frequency
-//   public ArrayList<Integer> getLocalModes()
-//   {
-//     /* YOUR IMPLEMENTATION HERE */
-//
-//   }
-//
-//
+  //*************** QUESTION 04 **************************
+  //postcond: returns list of modes in _frequency
+  public ArrayList<Integer> getLocalModes()
+  {
+    ArrayList<Integer> list = new ArrayList(_frequency.size());
+    int i = 1;
+    while (i < data.size()-1) {
+      if (isLocalMode(i)) {
+        list.add(_frequency.get(i));
+        i = i+2;
+      }
+      else {
+        i++;
+      }
+    }
+    return list;
+  }
+
+
 //   //*************** QUESTION 05 **************************
 //   //precond:  longestBar > 0
 //   public void printHistogram( int longestBar )
