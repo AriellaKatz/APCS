@@ -67,6 +67,9 @@ public class StatPrinter
   public StatPrinter( ArrayList <Integer> data )
   {
     _frequency = new ArrayList<Integer>(max(data)+1);
+    for (int n = 0; n < max(data)+1; n++) {
+      _frequency.add(0);
+    }
     for (int i = 0; i < data.size(); i ++){
       int element = data.get(i);
       int freq = _frequency.get(element);
@@ -117,9 +120,9 @@ public class StatPrinter
   {
     ArrayList<Integer> list = new ArrayList(_frequency.size());
     int i = 1;
-    while (i < data.size()-1) {
+    while (i < _frequency.size()-1) {
       if (isLocalMode(i)) {
-        list.add(_frequency.get(i));
+        list.add(i);
         i = i+2;
       }
       else {
@@ -130,11 +133,20 @@ public class StatPrinter
   }
 
 
-//   //*************** QUESTION 05 **************************
-//   //precond:  longestBar > 0
-//   public void printHistogram( int longestBar )
-//   {
-//     /* YOUR IMPLEMENTATION HERE */
-//   }
+  //*************** QUESTION 05 **************************
+  //precond:  longestBar > 0
+  public void printHistogram( int longestBar )
+  {
+    String s = "";
+    for (int i = 0; i < _frequency.size(); i++) {
+      s += i + " : ";
+      int numStars = (longestBar * _frequency.get(i) / max(_frequency));
+      for (int x = 0; x < numStars; x++) {
+        s += "*";
+      }
+      s += "\n";
+    }
+    System.out.println(s);
+  }
 
  }//end class StatPrinter
