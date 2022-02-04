@@ -1,0 +1,55 @@
+Ariella Katz
+APCS
+HW36 - All Quacked Up
+2021-11-17
+time spent: 0.5hrs
+
+ThinkJava
+Appendix D
+	• Error type:
+		- Compile-time: syntax error
+		- Run-time: An issue occurs while it's running (like an infinite loop)
+			* Syntax is technically correct; it gets past the compiler.
+		- Logic: Program does not perform as desired.
+			* Won't actually throw an error
+	• Compile-time errors:
+		- If you have a lot of errors, chances are most of them are byproducts
+		  of the 1st one.
+		- When looking for the problem code, look prior to wherever Java noticed
+		  the error. 
+			* You may have to follow the flow of execution to the definition of
+			  another method.
+		- Debugging by bisection:
+			* If you can't find the cause of an error
+			1. Make a new file.
+			2. Copy the 1st half of your code into it.
+			3. If the file compiles, add half of the remaining half.
+			4. Keep going until you narrow down where the error is.
+	• Run-time errors:
+		- A program "hangs" if it appears to stop and do nothing.
+			* If you suspect a loop, print a message right before and right
+			  after the loop so you can see if Java gets stuck between the two
+			  (and only prints the 1st method).
+			* StackOverflowErrors come from infinite recursive loops.
+		- If you think you have an infinite loop: Print the values of the variables
+		  in the conditional after each iteration to see if they're getting updated
+		  properly and the conditional works.
+		- If you think you have an infinite recursion: Make sure you have a base
+		  case. If you do, print the parameter values at the beginning of each
+		  recursive call to see if the parameters are approaching the base case.
+		- Exceptions:
+			* NullPointerException: You tried to access an attribute or object
+			  with a value of null.
+			* ArrayIndexOutOfBoundsException: The index you're trying to access
+			  is <0 or >(array.length-1).
+			* FileNotFoundException: Java didn't find the file it's looking for.
+			* Arithmetic Exception: A problem with an arithmetic operation, like
+			  /0.
+			* StackOverflowError
+	• Logic errors:
+		- Common logic errors:
+			* int division
+			* Don't rely on floating-point numbers to be perfectly accurate.
+			* == vs .equals() for objects
+			* print (rather than println) statements may be stored until the next
+			  newline.

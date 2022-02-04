@@ -1,0 +1,127 @@
+Conditionals – Think Java Ch 5
+
+New Vocab:
+• Relational operators
+• Logical operators
+• Short circuit evaluation
+• De Morgan’s laws
+• Conditional statements
+• Branches
+• Chaining
+• Nesting
+• Recursion/recursive
+• Base case
+• Binary
+
+Notes:
+	Relational operators check conditions involving the comparison of 2 values
+	The result of a relational operator is a Boolean data type – either true or false.
+	The two values being compared must be of the same data type (although Java will convert from int to double as necessary).
+	Some relational operators (== and !=) can be used to compare strings, but for now, we’ll use the following method:
+String fruit1 = “Apple”;
+String fruit2 = “Orange”;
+System.out.println(fruit1.equals(fruit2));
+↪ false
+	Java’s 3 logical operators are &&, ||, ! (and, or, and not, respectively).
+	Consider evenFlag and n \% 3 == 0:
+evenFlag && n \% 3 == 0
+is true when both evenFlag is true and n \% 3 == 0 is true (n is divisible by 3).
+evenFlag || n \% 3 == 0
+is true when either evenFlag or n \% 3 == 0 is true.
+!evenFlag
+is true if evenFlag is not true (it inverts a Boolean expression).
+	Java uses short circuit evaluation (ignoring the second expression when possible – like true || anything is always true and false && anything is always false) for efficiency.
+	De Morgan’s laws: 
+!(A && B) is the same as !A || !B
+!(A || B) is the same as !A && !B
+	Negating a logical expression is the same as negating each term and changing the operator.
+	The ! operator takes precedence over && and ||.
+	De Morgan’s laws also apply to relational operators:
+!(x < 5 && y == 3) is the same as x >= 5 || y != 3
+!(x >= 1 || y != 7) is the same as x < 1 && y == 7
+	Conditional statements let us check conditions and act accordingly. The simplest is the if statement, which may also include an else statement (2 possibilities – called branches).
+	The format is:
+if (x % 2 == 0) {
+	System.out.println(“x is even”);
+} else {
+	System.out.println(“x is odd”);
+}
+	The braces are optional if each branch has only 1 statement (literally just delete the braces).
+	You can chain if and else statements:
+if (x > 0) {
+	System.out.println(“x is positive”);
+} else if (x < 0) {
+	System.out.println(“x is negative”);
+} else {
+	System.out.println(“x is zero”);
+}
+You can nest if and else statements:
+if (x == 0) {
+	System.out.println(“x is zero”);
+} else {
+	if (x > 0) {
+		System.out.println(“x is positive”);
+	} else {
+		System.out.println(“x is negative”);
+	}
+}
+	You can store a true or false value by creating a boolean variable:
+boolean flag;
+flag = true;
+
+boolean testResult = false;
+
+You can also store the result of a comparison in a variable:
+boolean evenFlag = (n % 2 == 0);
+The above is true if n is even. The parentheses are unnecessary (just for aesthetics).
+	Variables defined this way are called flags because it “flags” the presence or absence of a condition.
+	You can use flag variables as part of a conditional statement:
+if (evenFlag) {
+	System.out.println(“n was even when I checked it”);
+}
+This checks if the flag is true. You don’t have to write if (evenFlag == true) because evenFlag is a boolean so it’s already a condition.
+To check if the flag is false:
+if (!evenFlag) {
+	System.out.println(“n was odd when I checked it”);
+}
+	The return statement allows you to terminate a method before you reach the end, often if you detect an error condition:
+public static void printLogarithm(double x) {
+	If (x <= 0.0) {
+		System.err.println(“Error: x must be positive.”);
+		return;
+	}
+	double result = Math.log(x)
+	System.out.println(“The log of x is ” + result);
+}
+If x isn’t positive, the program will output “Error: x must be positive.” and exit the method (following the flow of execution) without executing the rest of the method (finding the log of x). 
+	When using Scanners, we can check the input before parsing it to make sure it’s the correct type and won’t throw an error:
+public static void scanDouble(Scanner in) {
+	System.out.print(“Enter a number: ”);
+	if (!in.hasNextDouble()) {
+		String word = in.next();
+		System.err.println(word + “ is not a number”);
+		return;
+	}
+	double x = in.nextDouble();
+	printLogarithm(x);
+}
+hasNextDouble is provided by the Scanner class, and checks whether the next token in the input stream can be interpreted as a double. If not, we display an error message and return. If so, we can call nextDouble (which tries to read a double) with no chance of throwing an exception.
+	Recursive methods invoke themselves.
+	Stack diagrams, used to represent the state of a program during a method invocation, can be helpful for interpreting recursive methods. Every time a method is called, Java creates a new frame for the method’s current parameters and variables.
+	The last frame is the base case. It doesn’t make a recursive call.
+	If the base case is never reached or if it takes too long to get there, you get a StackOverflowError.
+	To convert an integer to its binary representation, repeatedly divide by 2:
+23/2 is 11 remainder 1
+11/2 is 5 remainder 1
+5/2 is 2 remainder 1
+2/2 is 1 remainder 0
+1/2 is 0 remainder 1
+Read from bottom to top, 23 in binary is 11101.
+	A recursive method to display the binary representation of any positive integer:
+public static void displayBinary(int value) {
+	if (value > 0) {
+		displayBinary(value / 2);
+		System.out.print(value % 2);
+	}
+}
+If value is zero, displayBinary does nothing (that’s the base case). If the argument is positive, the method divides it by 2 and calls displayBinary recursively. Once value / 2 = 0, the base case has been reached, and following the order of execution, the remainders are displayed in the reverse order, starting with the base case, creating the binary number.

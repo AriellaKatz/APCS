@@ -1,0 +1,17 @@
+Ariella Katz
+APCS
+HW06 -- Comparing syntax of different languages: "Hello, world!"
+2021-09-28
+Worked with: Jacob Kirmayer, Nafiz Labib, Kaitlin Ho
+
+Similarities: 
+In all programs, Hello, world! is surrounded by quotation marks.
+Both NetLogo and Python use the command "print".
+Scheme and Python both utilize parentheses. 
+
+Differences:
+Scheme uses the command "display" instead of "print".
+Scheme surrounds the entire procedure in parentheses. Python surrounds only the argument in parentheses. NetLogo does not require parentheses.
+
+Notes:
+Scheme seems to be the same as Dr.Racket for this purpose.

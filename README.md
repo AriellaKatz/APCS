@@ -1,3 +1,3 @@
-# APCS
+# work repo for ARIELLA KATZ
 
-This repository is for mini-projects from APCS classwork/homework.
+APCS 2021-2022

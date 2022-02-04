@@ -1,0 +1,118 @@
+Data Types – Think Java Ch 2, 3
+
+New Vocab:
+• Initialized
+• State
+• Floating-point
+• Compile-time errors
+• Parsing
+• Run-time errors
+• Logic errors
+• Package
+• Address
+• Java library
+• Import statement
+• Method
+• Statement
+• Token
+• Literal
+• Magic number
+• Format specifier
+
+Notes:
+	In Java, in order to declare a variable, you must first declare what kind of data it will recommend (ex: int x means x will be an integer).
+	The type (ie int or String) may begin with an uppercase or lowercase. It matters.
+	To declare an integer variable named x:
+int x;
+	To declare integer variables named x and y:
+int x, y;
+or
+int x;
+int y;
+	To assign x a value of 5:
+x = 5
+	You cannot use a variable until it has been assigned to a value (initialized).
+	To declare x and initialize it with a value of 5 at the same time:
+int x = 5
+	Assignment is not a statement of equality.
+	A program’s state is comprised of its variables and their assigned values.
+	The state changes as the program runs and the variables are reassigned and new variables are introduced.
+	To display the value of a variable, you can use print or println:
+String firstLine = “Hello”;
+System.out.println(firstLine);
+↪ Hello
+	To output multiple values on the same line, use several print statements and use println for the last one. Often, the output from print is stored without being displayed until println is run, and then the entire line is displayed at once. 
+	Java uses infix notation.
+	When dividing integers, Java always rounds down to the next lowest integer (towards 0).
+	Floating-point numbers can represent fractions or integers. In Java, it’s called a double.
+	If at least one operand is a floating-point value, Java performs floating-point division, which alleviates the previous issue.
+	All computers must round unreasonably sized floating-point values, like irrational numbers, which creates rounding error. If you need absolute precision, try to use integers instead and adjust the units as necessary.
+	The largest integer is ~2 bil
+	Most operators do not work on strings.
+	+ will append two strings (concatenation)
+	Java follows the usual orders of operation.
+	Any arithmetic expression can be used inside a print statement, and the value of the expression will be displayed.
+	An expression can be assigned to a variable.
+	Compile-time errors occur when you use incorrect syntax, so the program cannot be compiled.
+	Parsing is the process of reading a program before translating.
+	Run-time errors (aka exceptions) only appear once the program has started running.
+	Logic errors occur when the program compiles and runs completely but does not produce the desired output due to an error in the program. 
+	Consider System.out.println:
+	System is a class that provides methods related to the “system” (environment where programs run). It also provides System.out, which provides methods for displaying output, like println.
+	System.out is part of the package java.io. A package is a group of related classes. java.io has classes for input and output.
+	The address of a value (represented as a hexadecimal – base 16) is its location in the computer’s memory.
+	The Java library is a collection of classes that can be used in programs.
+	Java also reads keyboard inputs. This can be done using the value System.in from the System class, but more easily with the Scanner class.
+	Scanner is provided by the package java.util (for “utility classes” aka very useful classes) provides methods for inputting words, numbers, and other data. 
+	In order to use Scanner, you have to import it first:
+import java.util.Scanner;
+	This is an import statement. It clarifies that the class Scanner refers to the one in the java.util package.
+	Import statements are usually included at the beginning of a file.
+	To create a Scanner:
+Scanner in = new Scanner(System.in);
+	We declare a variable in of the type Scanner and create a new Scanner that takes input from System.in.
+	The Scanner class provides a method called nextLine that reads a line of input from the keyboard and returns a String.
+	The System and String classes don’t need to be imported because they’re part of the java.lang package, which is imported automatically. 
+	A package is a collection of classes, which define methods, which contain statements, which may contain expressions, which are made up of tokens, the basic elements of a program (ie numbers, variable names, operators, keywords, punctuation).
+	Example: Converting inches to centimeters, and displaying the results
+int inch; //Declares a variable inch of the type int.
+double cm; //Declares a variable cm of the type double.
+Scanner in = new Scanner(System.in); //Creates a Scanner, like before.
+
+System.out.print(“How many inches? ”); //Displays: How many inches?
+//Using print instead of println above lets the user enter the input on the same line // as the prompt, “How many inches? ”.
+inch = in.nextInt(); //Assigns inch to the value of the input entered from the // keyboard (enter the number of inches next to the prompt displayed).
+//nextInt is a Scanner method that reads input from the keyboard and converts it to // an integer.
+
+cm = inch * 2.54; //Converts inches to centimeters
+System.out.print(inch + “ in = ”); //Displays: #inches in = 
+System.out.println(cm + “ cm”); //Displays: #centimeters cm on the same // line as above
+	Literals are values that appear in programs. 
+	Magic numbers are numbers that appear many times without explanation in a program. 2.54 in the previous code is a good example. For clarities sake, it’s good to assign magic numbers to variables with names that explain their purpose.
+	If the value of a variable is not supposed to change (like if it has been assigned to a magic number), we can use the keyword final:
+final double cmPerInch = 2.54;
+Now, the value of cmPerInch cannot be reassigned. If you try, you’ll get an error.
+	Variables declared as final are constants.
+	If you output a double using print or println, it will display up to 16 decimal places.
+	System.out provides the method printf which gives you control over format:
+System.out.printf(“Four thirds = %.3f”, 4.0 / 3.0);
+//The first value in the parentheses is a format string that specifies how the output should // be displayed. %.3f is a format specifier, which must always start with a %. %.3f 
+// means that the following value should be displayed as a floating-point rounded to 3  
+// decimal places.
+↪ Four thirds = 1.333
+
+int inch = 100;
+double cm = inch * cmPerInch;
+System.out.printf(“%d in = %f cm\n”, inch, cm);
+//%d displays integer values. %f displays floating-point values, as before. The values are // matched with the format specifiers in order.
+//Like print, printf doesn’t append a newline, so we end the format string with a 
+// newline character.
+↪ 100 in = 254.000000 cm
+	Type casts convert a value from one type to another:
+double pi = 3.14159;
+int x = (int) pi; //(int) is the type cast. It converts pi to an integer, so that 
+// there won’t be an error (since x was declared as an integer). x gets the value 3. It will // always round towards 0 (it throws away the fractional part).
+	Type casting takes precedence over arithmetic operations.
+	% is the modulus operator:
+76 % 12 = 4
+
