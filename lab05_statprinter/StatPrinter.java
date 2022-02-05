@@ -2,14 +2,13 @@
 // APCS pd6
 // L05 -- Stats on Stats
 // 2022-02-03r
-// time spent:  hrs
+// time spent:   0.5 hrs
+
 
 
 /**
    An AP-style question, for practice...
-
    GOAL: Write the StatPrinter class below.
-
    WHAT YOU NEED TO KNOW:
    The StatPrinter Object receives an
    ArrayList of nonnegative integers, then builds a frequency ArrayList in which
@@ -18,19 +17,16 @@
    list would be [0,1,2,2,0,1]. This is read as 0 zeroes, 1 one, 2 twos,
    2 threes, 0 fours, 1 five. The size of the frequency list is the equal to
    the maximum value of the data.
-
    A capability of the class is to calculate local modes from the frequency
    list. A local mode is a value that is greater than the value at index-1
    and greater than the value at index+1. A local mode is never at the end
    points of the list. For example, if the frequency list is [1,2,1,4,2,3,5]
    then the local modes are 2 and 4.
-
    This class is also capable of printing a histogram of the frequencies, using
    '*'s to indicate a frequency amount. To print a histogram, the user specifies
    the longest sequence of '*'s used and then all other values are printed in
    proportion to this value. For example, if longest bar is 10 and the frequency
    list is [1,2,1,4,2,3,5] then the histogram printed looks like this:
-
    0 : **
    1 : ****
    2 : **
@@ -38,9 +34,7 @@
    4 : ****
    5 : ******
    6 : **********
-
    For each method, state run time efficiency using Big O notation.
-
    TIPS FOR AWESOME:
    * Keys to Success were so named (by Thinkeren) for a reason.
    * Look over all fxns, think a bit, decide which to tackle first.
@@ -66,10 +60,14 @@ public class StatPrinter
   //  _frequency would be [0,0,3,2,0,1]
   public StatPrinter( ArrayList <Integer> data )
   {
+    //O(n)
     _frequency = new ArrayList<Integer>(max(data)+1);
+    //start with frequencies of 0 for all numbers
     for (int n = 0; n < max(data)+1; n++) {
       _frequency.add(0);
     }
+    // for each number in data, increment the frequency at the
+    //corresponding index of _frequency
     for (int i = 0; i < data.size(); i ++){
       int element = data.get(i);
       int freq = _frequency.get(element);
@@ -84,7 +82,10 @@ public class StatPrinter
   //postcond: returns largest integer in data
   public Integer max( ArrayList <Integer> data )
   {
+    //O(n)
     Integer max = 0;
+    // traverse data, updating the max whenever a greater element
+    //is found
     for (int i = 0; i < data.size(); i++) {
       Integer element = data.get(i);
       if (element.compareTo(max) > 0) {
@@ -107,6 +108,9 @@ public class StatPrinter
   //    isLocalMode(5) -> true
   public boolean isLocalMode( int i )
   {
+    //O(1)
+    // literally just return the truth value of all the criteria in
+    //the postcond
     return ((i > 0) &&
     (i < _frequency.size()-1) &&
     (_frequency.get(i-1) < _frequency.get(i)) &&
@@ -118,12 +122,15 @@ public class StatPrinter
   //postcond: returns list of modes in _frequency
   public ArrayList<Integer> getLocalModes()
   {
-    ArrayList<Integer> list = new ArrayList(_frequency.size());
-    int i = 1;
-    while (i < _frequency.size()-1) {
+    //O(n)
+    ArrayList<Integer> list = new ArrayList<Integer>(_frequency.size()/2); //bc less than half of the numbers are local modes
+    // traverse _frequency, checking each frequency to see if it's a
+    //local mode, and add it to the list of modes if it is
+    int i = 1; //bc element 0 can't be a local mode
+    while (i < _frequency.size()-1) { //bc the last element can't be a local mode
       if (isLocalMode(i)) {
         list.add(i);
-        i = i+2;
+        i = i+2; //if it is a local mode, the next one definitely won't be, so skip it
       }
       else {
         i++;
@@ -137,16 +144,22 @@ public class StatPrinter
   //precond:  longestBar > 0
   public void printHistogram( int longestBar )
   {
+    //O(n^2)
     String s = "";
+    // for each number btwn 0 and max (for every index in _frequency),
+    //create a new line starting with index : , followed by the
+    //proportional number of stars
     for (int i = 0; i < _frequency.size(); i++) {
       s += i + " : ";
+      // calculate the number of stars for each frequency
       int numStars = (longestBar * _frequency.get(i) / max(_frequency));
+      // add the stars to the string one at a time
       for (int x = 0; x < numStars; x++) {
         s += "*";
       }
-      s += "\n";
+      s += "\n"; //remember to make a new line!
     }
     System.out.println(s);
   }
 
- }//end class StatPrinter
+ }//end class StatPrinte

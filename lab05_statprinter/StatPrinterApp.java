@@ -1,8 +1,8 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
-// L05 -- pulling it together
+// Team JEA (Jacob Kirmayer, Ethan Lam, Ariella Katz, Jacob Jr, Carl, Tom)
+// APCS pd6
+// L05 -- Stats on Stats
 // 2022-02-03r
-// time spent:  hrs
+// time spent: 0.5 hrs
 
 /***
  * class StatPrinterApp
@@ -18,10 +18,8 @@ public class StatPrinterApp
     /*=================
       data:
       [2,5,2,3,4,4,4]
-
       desired _freq:
       [0,0,2,1,3,1]
-
       freq initially:
       [0,0,0,0,0,0]
       =================*/

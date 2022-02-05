@@ -1,23 +1,25 @@
-Team JEA (Jacob Kirmayer, Ethan Lam, Ariella Katz, Jacob Jr, Carl, Tom)
-APCS pd6
-L05 -- Stats on Stats
-2022-02-03r
-time spent:  hrs
+// Team JEA (Jacob Kirmayer, Ethan Lam, Ariella Katz, Jacob Jr, Carl, Tom)
+// APCS pd6
+// L05 -- Stats on Stats
+// 2022-02-03r
+// time spent:  0.5 hrs
 
 
 DISCO
 ------------------------------------------------
-* 
+* For ArrayLists of Integers, always use Integer as the type for elements and int for indices,
 ================================================
-
 
 QCC
 ------------------------------------------------
-* 
+* Is there a reason we use Integers instead of ints?
+* Is there a way to make an ArrayList of primitives?
+* Why do we use local modes?
+* How do we write time complexity with respect to more than one variable?
 ================================================
 
 
 MISC
 ------------------------------------------------
-* 
+* If the universe is so big why won't it fight me?
 ================================================
