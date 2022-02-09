@@ -5,24 +5,18 @@ HW61 - Instructions so Simple...
 time spent: 0.5 hrs
 
 DISCO:
-0. The general MergeSort algo
+0. This algo utilizes recursion! The base case is a deck
+   height of 1.
 
 QCC:
-0. Are turtles capable of remembering who gave them the cards first?
+0. Could we optimize this by checking whether the deck
+   has 2 cards, and if so, just merging them instead of
+   dividing by 2 again?
 
 THINKER FIRMWARE:
-0. Have you held these cards before?
-1. Yes:
-  a. MergeSort the two decks:
-  b. Hand it off to the turtle who gave them to you first
-2. No:
-  a. Is it sorted?
-  b. Yes:
-    i. Hand it off to the turtle who gave them to you
-  c. No:
-    i. Split deck into two
-    ii. Give each half to two available turtles
-MergeSort Algo:
-0. Compare the first cards in each pile
-1. Put the smaller card in the new pile
-2. Repeat until fully merged
+0. Is it sorted? (Is the deck height 1?)
+1. If yes: You're done!
+2. If no:
+  a. Divide the deck into two.
+  b. Have 2 available thinkeren sort each half.
+  c. Merge the 2 now-sorted halves.
