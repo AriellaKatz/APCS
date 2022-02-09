@@ -15,7 +15,8 @@ public class MergeSort
    ******************************************************/
   private static int[] merge( int[] a, int[] b )
   {
-
+    int[] x = {0, 1};
+    return x;
   }//end merge()
 
 
@@ -26,7 +27,18 @@ public class MergeSort
    ******************************************************/
   public static int[] sort( int[] arr )
   {
-    
+    int[] output = new int[arr.length];
+    int x = arr.length/2;
+    int[] arrA = new int[x];
+    for (int m = 0; m < arrA.length; m++) {
+      arrA[m] = arr[m];
+    }
+    int[] arrB = new int[arr.length-x];
+    for (int n = 0; n < arrB.length; n++) {
+      arrB[n] = arr[x+n];
+    }
+    output = merge(arrA, arrB);
+    return output;
   }//end sort()
 
 
