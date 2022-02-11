@@ -173,6 +173,18 @@ public class Review {
     return sent;
   }
 
+  public static int starRating (String fileName) {
+    int stars;
+    double sent = totalSentiment(fileName);
+    //suppose reviews can range from -50 to 50:
+    if (sent < -30) { stars = 1; }
+    else if (sent <= -10) { stars = 2; }
+    else if (sent <= 10) { stars = 3; }
+    else if (sent <= 30) { stars = 4; }
+    else { stars = 5; }
+    return stars;
+  }
+
   public static void main(String[] args) {
     System.out.println("Expecting 2.32...");
     System.out.println(sentimentVal("happily"));
@@ -180,5 +192,16 @@ public class Review {
     System.out.println(sentimentVal("terrible"));
     System.out.println("Expecting -0.04...");
     System.out.println(sentimentVal("cold"));
+    System.out.println("Expecting -0.02...");
+    System.out.println(sentimentVal("administration"));
+    System.out.println("Expecting -0.94...");
+    System.out.println(sentimentVal("americans"));
+    System.out.println("Expecting 0.15...");
+    System.out.println(sentimentVal("computer"));
+
+    System.out.println("Expecting -0.03...");
+    System.out.println(totalSentiment("SimpleReview.txt"));
+    System.out.println("Expecting 3...");
+    System.out.println(starRating("SimpleReview.txt"));
   }
 }

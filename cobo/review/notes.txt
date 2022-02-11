@@ -1,0 +1,47 @@
+Team JEA: Jacob Kirmayer, Ethan Lam, Ariella Katz, Jacob Jr., Carl, Tom
+APCS
+HW63: Read/Review/Expand
+2022-02-10
+time spent: 0.5 hrs
+
+ANSWERS:
+Activity 1:
+  1a. public static double sentimentVal( String word )
+  1b. It requires a String parameter. Passing any other parameter throws an error.
+  1c. The method returns a double.
+  2. sentimentVal("administration"); -> -0.02
+     sentimentVal("americans"); -> -0.94
+     sentimentVal("computer"); -> 0.15
+  3a. It is compilable. A String is passed through sentimentVal() and num
+      matches the returntype (double).
+  3b. It is not compilable. A double is passed through sentimentVal() instead of
+      a String and the returntype is a double, not a String.
+  3c. It is not compilable. sentimentVal() only accepts one argument.
+Activity 2:
+  4. We convert the text in the file into one long String, and then use the
+     String.split() method to split that string into an array of words,
+     separated by spaces. We then use a specialized for loop to iterate through
+     that array, and for each word, getting rid of any punctuation and adding
+     its sentiment value to the running total sentiment value. After the entire
+     array has been traversed, the total sentiment value is returned.
+  5a. The rating does not make sense. For example, our SimpleReview rating was
+      very positive, but it only earned 3 stars. Although the overall review had
+      an overwhelmingly positive sentiment, the individual words tended towards
+      more negative sentiments, resulting in a deceptively low sentiment value.
+  5b. We could look for places where the numbers 1, 2, 3, 4, or 5 are used, and
+      if they're followed by "stars", use that for the rating.
+      We could use the word "not" to negate the sentiment value of the word
+      following it.
+  6.  All reviews with ratings below 15 will earn ratings of 4, and all reviews
+      with ratings above or equal to 15 will earn ratings of 0. This is because
+      any totalSentiment less than 0 will also be less than 5, any less than 5
+      will also be less than 10, and any less than 10 will also be less than 15,
+      so all of these will work for the first if statement. They might fix their
+      code by reversing the order of the if statements (< 0, then < 5, then
+      < 10, etc.).
+
+NOTES:
+* What is the static {...} section at the beginning of the class?
+* How might we be able to use context clues to improve totalSentiment?
+  For example, using the word "not" might automatically negate the sentiment
+  of the following word.
