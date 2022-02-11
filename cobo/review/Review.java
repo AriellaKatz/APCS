@@ -13,7 +13,7 @@ public class Review {
   private static HashMap<String, Double> sentiment = new HashMap<String, Double>();
   private static ArrayList<String> posAdjectives = new ArrayList<String>();
   private static ArrayList<String> negAdjectives = new ArrayList<String>();
-
+  private static ArrayList<String> allWords = new ArrayList<String>(); //added by us
 
   private static final String SPACE = " ";
 
@@ -24,6 +24,7 @@ public class Review {
         String[] temp = input.nextLine().split(",");
         sentiment.put(temp[0],Double.parseDouble(temp[1]));
         //System.out.println("added "+ temp[0]+", "+temp[1]);
+        allWords.add(temp[0]); //added by us
       }
       input.close();
     }
@@ -185,6 +186,27 @@ public class Review {
     return stars;
   }
 
+  //helper for fakeReview()
+  public static String fakeReviewFromString(String review){
+    int index = review.indexOf("*");
+    if (index==-1){
+      return review;
+    }else {
+      String substring = review.substring(index);
+      int spaceIndex = substring.indexOf(" ");
+      String start = review.substring(0,index);
+      String end = review.substring(index+spaceIndex);
+      int wordNum = (int)(Math.random() * allWords.size());
+      String newRev = start + allWords.get(wordNum) + end;\
+      return fakeReviewFromString(newRev);
+    }
+  }
+
+  public static String fakeReview(String fileName) {
+    String review = textToString("SimpleReview.txt");
+    return fakeReviewFromString(review);
+  }
+
   public static void main(String[] args) {
     System.out.println("Expecting 2.32...");
     System.out.println(sentimentVal("happily"));
@@ -199,7 +221,7 @@ public class Review {
     System.out.println("Expecting 0.15...");
     System.out.println(sentimentVal("computer"));
 
-    System.out.println("Expecting -0.03...");
+    System.out.println("Expecting -0.18...");
     System.out.println(totalSentiment("SimpleReview.txt"));
     System.out.println("Expecting 3...");
     System.out.println(starRating("SimpleReview.txt"));

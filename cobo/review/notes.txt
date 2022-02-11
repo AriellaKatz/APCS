@@ -39,9 +39,20 @@ Activity 2:
       so all of these will work for the first if statement. They might fix their
       code by reversing the order of the if statements (< 0, then < 5, then
       < 10, etc.).
+Activity 3:
+  3. indexOf(String) returns the index of the first occurrence of a character or
+     sequence of characters in a String. substring(int, int) returns the
+     section of the string from the first index to the second, including the first
+     but excluding the second. This exclusion makes it necessary to add 1 to the
+     second int that is passed through the method.
+  5. non-static methods can only be called from an instance of a class.
 
 NOTES:
 * What is the static {...} section at the beginning of the class?
 * How might we be able to use context clues to improve totalSentiment?
   For example, using the word "not" might automatically negate the sentiment
   of the following word.
+* In Activities 3 and 4, rather than wasting our time copying all of the
+  adjectives into their respective files, we're taking random words from
+  cleanSentiment.csv based on their sentiments, regardless of whether they're
+  adjectives.
