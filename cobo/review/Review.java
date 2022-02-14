@@ -1,8 +1,10 @@
+/*
 Team JEA: Jacob Kirmayer, Ethan Lam, Ariella Katz, Jacob Jr., Carl, Tom
 APCS
 HW63: Read/Review/Expand
 2022-02-10
 time spent: 0.5 hrs
+*/
 
 import java.util.Scanner;
 import java.io.File;
