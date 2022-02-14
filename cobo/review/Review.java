@@ -1,3 +1,9 @@
+Team JEA: Jacob Kirmayer, Ethan Lam, Ariella Katz, Jacob Jr., Carl, Tom
+APCS
+HW63: Read/Review/Expand
+2022-02-10
+time spent: 0.5 hrs
+
 import java.util.Scanner;
 import java.io.File;
 import java.util.HashMap;
@@ -186,25 +192,21 @@ public class Review {
     return stars;
   }
 
-  //helper for fakeReview()
-  public static String fakeReviewFromString(String review){
-    int index = review.indexOf("*");
-    if (index==-1){
-      return review;
-    }else {
-      String substring = review.substring(index);
-      int spaceIndex = substring.indexOf(" ");
-      String start = review.substring(0,index);
-      String end = review.substring(index+spaceIndex);
-      int wordNum = (int)(Math.random() * allWords.size());
-      String newRev = start + allWords.get(wordNum) + end;\
-      return fakeReviewFromString(newRev);
-    }
-  }
-
   public static String fakeReview(String fileName) {
     String review = textToString("SimpleReview.txt");
-    return fakeReviewFromString(review);
+    String[] words = review.split(" ");
+    String newRev = "";
+    for (String w: words) {
+      if (w.substring(0,1).equals("*")) {
+        String word = removePunctuation(w);
+        //to make all of the adjectives positive
+        if (sentimentVal(word) <= 0) {
+          w = randomPositiveAdj();
+        }
+      }
+      newRev += w + " ";
+    }
+    return newRev;
   }
 
   public static void main(String[] args) {
@@ -225,5 +227,7 @@ public class Review {
     System.out.println(totalSentiment("SimpleReview.txt"));
     System.out.println("Expecting 3...");
     System.out.println(starRating("SimpleReview.txt"));
+
+    System.out.println(fakeReview("SimpleReview.txt"));
   }
 }

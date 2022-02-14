@@ -1,1 +1,2 @@
-glowing,-0.15
+glowing
+disgusting
