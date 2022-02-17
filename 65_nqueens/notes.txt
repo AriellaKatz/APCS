@@ -1,0 +1,10 @@
+Team JEA: Jacob Kirmayer, Ethan Lam, Ariella Katz, Jacob Jr., Carl, Tom
+APCS
+HW65: How Many Queens Can a Thinker Place, If a Thinker Can Place Queens...
+2022-02-16
+time spent: 0.5hrs
+
+- For all boards nxn, excluding 2x2 and 3x3, there should be a solution.
+  In order for pieces to lie on distinct diagonals, the sums and differences
+  of their coordinates should be distinct. We speculate that for 4x4 and
+  beyond, there should be enough rows and columns to facilitate this.

@@ -1,3 +1,11 @@
+/*
+Team JEA: Jacob Kirmayer, Ethan Lam, Ariella Katz, Jacob Jr., Carl, Tom
+APCS
+HW65: How Many Queens Can a Thinker Place, If a Thinker Can Place Queens...
+2022-02-16
+time spent: 0.5hrs
+*/
+
 /***
  * class QueenBoard
  * Generates solutions for N-Queens problem.
@@ -36,10 +44,20 @@ public class QueenBoard
    */
   private boolean solveH( int col )
   {
+    // if you've found a square for a queen in every column and
+    //have thus gotten to the end of the board, return true
     if ( col == _board[0].length) { return true; }
     else {
       for (int i = 0; i < _board.length; i++) {
-        if (addQueen(i, col)) { return true; }
+        // if there is a square in column col where a queen can
+        //be added, add it and try the next column. If it can be
+        //solved by adding a queen to any space in the next column
+        //(and all the columns afterwards, recursively), return true.
+        //If it can't, return false.
+        if (addQueen(i, col)) {
+          if (solveH(col+1)) { return true; }
+          else { removeQueen(i, col); }
+        }
       }
       return false;
     }
@@ -53,6 +71,16 @@ public class QueenBoard
         all negs and 0's replaced with underscore
         all 1's replaced with 'Q'
     */
+    solve();
+    String ans = "";
+    for( int r = 0; r < _board.length; r++ ) {
+      for( int c = 0; c < _board[0].length; c++ ) {
+        if (_board[r][c] == 1) { ans += "0\t"; }
+        else { ans += "-\t"; }
+        }
+      ans += "\n";
+    }
+    System.out.println(ans);
   }
 
 
@@ -164,6 +192,29 @@ public class QueenBoard
        0	0	0	0	-1
        0	0	0	0	0
     */
+
+    QueenBoard two = new QueenBoard(2);
+    //System.out.println(two.solve());
+    two.printSolution();
+
+    QueenBoard eight = new QueenBoard(8);
+    //System.out.println(eight.solve());
+    eight.printSolution();
+
+    QueenBoard nine = new QueenBoard(9);
+    nine.printSolution();
+
+    QueenBoard ten = new QueenBoard(10);
+    ten.printSolution();
+
+    QueenBoard eleven = new QueenBoard(11);
+    eleven.printSolution();
+
+    QueenBoard twelve = new QueenBoard(12);
+    twelve.printSolution();
+
+    QueenBoard thirteen = new QueenBoard(13);
+    thirteen.printSolution();
 
   }
 
