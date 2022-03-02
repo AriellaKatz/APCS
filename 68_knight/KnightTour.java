@@ -119,6 +119,7 @@ class TourFinder
         if (i<2 || j<2 || i>_board.length-3|| j>_board.length-3){
           _board[i][j] = -1;
         }
+        else { _board[i][j] = 0; }
       }
     }
     //---------------------------------------------------------
@@ -132,7 +133,7 @@ class TourFinder
   public String toString()
   {
     //send ANSI code "ESC[0;0H" to place cursor in upper left
-    String retStr = "[0;0H";
+    String retStr = "^[[0;0H";
     //emacs shortcut: C-q, then press ESC
     //emacs shortcut: M-x quoted-insert, then press ESC
     int i, j;
@@ -170,14 +171,16 @@ class TourFinder
    **/
   public void findTour( int x, int y, int moves )
   {
-//    delay(50);
+//    delay(50); //makes backtracking visible
 
     //if a tour has been completed, stop animation
+    if (_solved) {System.exit(0);}
     if ( moves== Math.pow(_board.length-4,2) ) {
+      _solved = true;
       System.out.println( this ); //refresh screen
       System.out.println("reached end");
 //      System.out.println(System.currentTimeMillis()-start);
-      System.exit(0);
+//      System.exit(0);
       return;
     }
 
@@ -205,11 +208,12 @@ class TourFinder
       //If made it this far, path did not lead to tour, so back up...
       // (Overwrite number at this cell with a 0.)
       _board[x][y] = 0;
+      //for time trials:
 //      System.out.println( this );
-      if (moves==0){
-        System.out.println(System.currentTimeMillis()-start);
-        System.exit(0);
-      }
+//      if (moves==0){
+//        System.out.println(System.currentTimeMillis()-start);
+//        System.exit(0);
+//      }
 
       /******************************************
        * Recursively try to "solve" (find a tour) from
