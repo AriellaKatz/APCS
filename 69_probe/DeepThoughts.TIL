@@ -1,0 +1,58 @@
+Team Dysentery: Ameer Alnasser, Ethan Lam, Ariella Katz, Tom, Carl, TurtleBoi
+APCS
+HW69: Making Sense
+2022-03-02
+time spent: 0.5 hrs
+
+Mean execution times for boards of size n*n:
+n=5  0.1406s    across 5 executions
+n=6  0.1533s    across 5 executions
+n=7  too many s    across 5 executions
+n=8  too many s    across 5 executions
+
+
+q0: From any starting position, can an open tour always be found? Explain.
+No. If a closed tour can be found, then starting from any position will result
+in a closed tour (see q1).
+
+q1: From any starting position, can a closed tour always be found? Explain.
+A closed tour may not always be found. Every time a knight makes a move, it
+switches colors. On an nxn board where n is odd, the knight makes an odd number
+of moves (n^2) in a complete tour, meaning it would end on the same color that
+it began in. So, the "next move" would have to be in a different color than the
+starting position, and thus, it would not be the same square as the starting
+one.
+If a closed tour does exist, then the knight may start at any position, since it
+is a loop.
+
+q2: How do you explain the increase in execution time as n increases?
+Worst case, the knight tries every possible permutation before finding a
+complete tour. There are 8 possible first moves, then 8 possible moves for each
+of the first moves (8*8), then 8 possible moves for each of the second moves
+(8*8*8), and so forth until n^2, when it finally finds a complete tour. This is
+equal to 8^(n^2).
+
+q3: Thoughts on optimization?
+* After each move, check to see whether a corner is not filled in and is
+isolated. If it is, a complete tour will not be possible, and backtracking
+can occur sooner.
+* Check for symmetry - not all cases need be tested.
+* Can we automatically rule out certain starting points?
+
+
+
+Maze Escape Algo:
+1) Are you at the end?
+   Yes: You're done!
+   No:
+   A) Can you move to an adjacent box in __ direction?
+      (Is there no # in that box?)
+      Yes:
+      i) Move there
+      ii) Repeat from Step 1)
+      No:
+      i) Have you tried all of the directions?
+         Yes:
+         a) Go back
+         No:
+         a) Try the next one
