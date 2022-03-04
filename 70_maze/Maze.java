@@ -33,7 +33,7 @@ class MazeSolver
   final private int FRAME_DELAY = 50;
 
   private char[][] _maze;
-  private int h, w; // height, width of maze
+  public int h, w; // height, width of maze *made public for rando drop
   private boolean _solved;
 
   //~~~~~~~~~~~~~  L E G E N D  ~~~~~~~~~~~~~
@@ -93,7 +93,8 @@ class MazeSolver
   {
     //send ANSI code "ESC[0;0H" to place cursor in upper left
     String retStr = "[0;0H";
-    //emacs shortcut: C-q, ESC
+    //emacs shortcut: C-q, ESC RANDOM-POSITION-GENERATOR CODE HERE
+    //ms.solve( startX, startY );
     //emacs shortcut: M-x quoted-insert, ESC
 
     int i, j;
@@ -108,7 +109,7 @@ class MazeSolver
 
   /**
    * helper method to keep try/catch clutter out of main flow
-   * @param n      delay in ms
+   * @param n      delay in ms RANDOM-POSITION-GENERATOR CODE HERE
    **/
   private void delay( int n )
   {
@@ -131,29 +132,33 @@ class MazeSolver
 
     if ( _solved == true ) { System.exit(0); }
     //primary base case
-    if ( _maze[x][y].equals("$") ) {
+    if ( _maze[y][x] == EXIT ) {
       _solved = true;
       System.out.println(_maze);
       return;
     }
     //other base cases
-    else if ( !(_maze[x][y].equals("#")) ) {
+    else if ( _maze[y][x] != PATH ) {
 	    return;
     }
     //otherwise, recursively solve maze from next pos over,
     //after marking current location
     else {
-	    _maze[x][y] = "@";
+	    _maze[y][x] = HERO;
       System.out.println( this ); //refresh screen
-
-???
+      solve(x+1,y); //move up
+      solve(x,y+1); //move right
+      solve(x-1,y); //move down
+      solve(x,y-1); //move left
       System.out.println( this ); //refresh screen
+      _maze[y][x] = VISITED_PATH;
+      return;
     }
   }
 
   //accessor method to help with randomized drop-in location
   public boolean onPath( int x, int y) {
-
+    return (_maze[y][x] == PATH);
   }
 
 }//end class MazeSolver
@@ -182,13 +187,19 @@ public class Maze
     //display maze
     System.out.println( ms );
 
-    //drop hero into the maze (coords must be on path)
-    // ThinkerTODO: comment next line out when ready to randomize startpos
-    ms.solve( 4, 3 );
+    //drop hero into the maze (coords must be on path)[[C@6acbcfc0
 
+    // ThinkerTODO: comment next line out when ready to randomize startpos
+    //ms.solve( 4, 3 );
+
+    int startX = 0;
+    int startY = 0;
     //drop our hero into maze at random location on path
-    // YOUR RANDOM-POSITION-GENERATOR CODE HERE
-    //ms.solve( startX, startY );
+    while(!ms.onPath(startX, startY)) {
+      startX = (int) (Math.random() * ms.h);
+      startY = (int) (Math.random() * ms.w);
+    }
+    ms.solve( startX, startY );
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()

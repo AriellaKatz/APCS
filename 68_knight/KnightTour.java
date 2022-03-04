@@ -180,7 +180,7 @@ class TourFinder
       System.out.println( this ); //refresh screen
       System.out.println("reached end");
 //      System.out.println(System.currentTimeMillis()-start);
-//      System.exit(0);
+//      System.exit(0); //this makes the printing very weird
       return;
     }
 
