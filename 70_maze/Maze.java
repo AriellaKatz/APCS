@@ -15,7 +15,19 @@
  * (mazefile is ASCII representation of a maze, using symbols below)
  *
  * ALGORITHM for finding exit from starting position:
- *  <INSERT YOUR SUMMARY OF ALGO HERE>
+ * 1) Is the current space the exit?
+ *   Yes: You're done!
+ *   No:
+ *   A) Is it on the path?
+ *     Yes:
+ *       i) Have you tried moving in all possible directions?
+ *         Yes: This location failed. Go back
+ *         No:
+ *           a) Move up, to the left, down, or to the right (depending on what
+ *           you've already tried)
+ *           b) Repeat from Step 1)
+ *     No:
+ *       ii) Go back
  *
  * DISCO
  *
@@ -135,7 +147,7 @@ class MazeSolver
     if ( _maze[y][x] == EXIT ) {
       _solved = true;
       System.out.println(_maze);
-      return;
+      System.exit(0);
     }
     //other base cases
     else if ( _maze[y][x] != PATH ) {
