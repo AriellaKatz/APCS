@@ -105,7 +105,7 @@ class MazeSolver
   {
     //send ANSI code "ESC[0;0H" to place cursor in upper left
     String retStr = "[0;0H";
-    //emacs shortcut: C-q, ESC RANDOM-POSITION-GENERATOR CODE HERE
+    //emacs shortcut: C-q, ESC
     //ms.solve( startX, startY );
     //emacs shortcut: M-x quoted-insert, ESC
 
@@ -121,7 +121,7 @@ class MazeSolver
 
   /**
    * helper method to keep try/catch clutter out of main flow
-   * @param n      delay in ms RANDOM-POSITION-GENERATOR CODE HERE
+   * @param n      delay in ms
    **/
   private void delay( int n )
   {
@@ -199,7 +199,7 @@ public class Maze
     //display maze
     System.out.println( ms );
 
-    //drop hero into the maze (coords must be on path)[[C@6acbcfc0
+    //drop hero into the maze (coords must be on path)
 
     // ThinkerTODO: comment next line out when ready to randomize startpos
     //ms.solve( 4, 3 );
