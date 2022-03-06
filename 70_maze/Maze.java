@@ -1,8 +1,8 @@
-// Clyde Sinclair
-// APCS pd0
-// HW69 -- maze solving (blind, depth-first)
-// 2022-03-03r
-// time spent:  hrs
+// Team Dysentery: Ameer Alnasser, Ethan Lam, Ariella Katz, Tom, Carl, TurtleBoi
+// APCS
+// HW69: Making Sense
+// 2022-03-03
+// time spent: 0.5 hrs
 
 /***
  * SKEELTON for
