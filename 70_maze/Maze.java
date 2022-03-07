@@ -30,9 +30,13 @@
  *       ii) Go back
  *
  * DISCO
+ * We don't need to place @s in our mazes since that is the entire premise of our maze solver: place a start position and find a solutionf rom there
  *
  * QCC
- *
+ * We still do not undertsand what makes a maze difficult.
+ * Is there anything that would render our maze solver to be in an infinite loop?
+ * How would we optimize this solution to find a solution quicker?
+ * breadth or depth?
  ***/
 
 //enable file I/O
