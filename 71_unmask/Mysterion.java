@@ -95,24 +95,24 @@ public class Mysterion
    * target value and one with values greater than the target value
    *
    * @param arr
-   * @param a
-   * @param b
-   * @param c
+   * @param firstVal
+   * @param lastVal
+   * @param target
    * @return int
    *
    */
-  public static int mysterion( int[] arr, int a, int b, int c)
+  public static int twoPiles( int[] arr, int firstVal, int lastVal, int target)
   {
-    int v = arr[c];
-    swap(c, b, arr);
-    int s = a;
-    for (int i = a; i < b; i++) {
+    int v = arr[target];
+    swap(target, lastVal, arr);
+    int s = firstVal;
+    for (int i = firstVal; i < lastVal; i++) {
       if (arr[i] < v) {
         swap(s, i, arr);
         s += 1;
       }
     }
-    swap(b, s, arr);
+    swap(lastVal, s, arr);
     return s;
   }//end mysterion
 
@@ -133,7 +133,7 @@ public class Mysterion
     for( int testC = 0; testC < 5; testC++ ) {
     System.out.println("arr1: ");
     printArr(arr1);
-    mysterion(arr1,0,4,testC);
+    twoPiles(arr1,0,4,testC);
     System.out.println("after mysterion w/ a=0,b=4,c="
     + testC +"...");
     printArr(arr1);
@@ -141,7 +141,7 @@ public class Mysterion
 
     System.out.println("arr3:");
     printArr(arr3);
-    mysterion(arr3,0,4,testC);
+    twoPiles(arr3,0,4,testC);
     System.out.println("after mysterion w/ a=0,b=4,c="
     + testC +"...");
     printArr(arr3);
@@ -149,7 +149,7 @@ public class Mysterion
 
     System.out.println("arr4:");
     printArr(arr4);
-    mysterion(arr4,0,4,testC);
+    twoPiles(arr4,0,4,testC);
     System.out.println("after mysterion w/ a=0,b=4,c="
     + testC +"...");
     printArr(arr4);
@@ -157,7 +157,7 @@ public class Mysterion
 
     System.out.println("arr5:");
     printArr(arr5);
-    mysterion(arr5,0,4,testC);
+    twoPiles(arr5,0,4,testC);
     System.out.println("after mysterion w/ a=0,b=4,c="
     + testC +"...");
     printArr(arr5);
