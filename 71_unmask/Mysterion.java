@@ -1,48 +1,54 @@
-// Clyde Sinclair
-// APCS pd0
-// HW71 -- Reading for intent, tracing for VICTORY
-// 2022-03-07m
-// time spent:  hrs
+// Team Dysentery: Ameer Alnasser, Ethan Lam, Ariella Katz, Tom, Carl, TurtleBoi
+// APCS
+// HW71 -- Whut Dis.
+// 2022-03-07
+// time spent: 0.5 hrs
 
 /***
  * SKEELTON for
  * class Mysterion
  * tests preliminary hypotheses re: utility of mystery algo
- * 
+ *
  * <h1>It's a Bird, It's a Plane! It's.... MYSTERION</h1>
- * The Mysterion method ... <YOUR TRIO'S DESCRIPTION HERE> 
+ * The Mysterion method ...
+ *  Determine the first, last, and middle value.
+ *  Iterate through the array. If the element is less than the middle (target)
+ *  value, send it to the beginning of the array (after any values that have)
+ *  already been sent there).
  * <p>
  * <b>Note:</b> BLAH blah blah, yakkety schmakketty...
  * @author  Trey Parker, Matt Stone
  * @version 3.1415926535897932384626433
- * @since   2022-03-07m 
+ * @since   2022-03-07m
  *
  * algo as pseudocode:
  * ------------------------------
  *     v = arr[c]
- *     swap arr[c], arr[b]  
+ *     swap arr[c], arr[b]
  *     s = a
  *     for i in [a..b-1]
  *         if arr[i] < v
  *             swap arr[s], arr[i]
  *             s+=1
- *     swap arr[b], arr[s] 
- * 
+ *     swap arr[b], arr[s]
+ *
  * DISCO
- * 
+ * If you reiterate mysterion() for all values of c, it will sort the array, as
+ * in the main() method.
  * QCC
- * 
+ * How can we optimize this so that we don't have to try all values of c?
  * q0: What does it do?
- * a0:
- * 
+ * a0: It sorts the array into two sections: One with values less than the
+ *     target value and one with values greater than the target value
+ *
  * q1: O(?)
- * a1:
- * 
+ * a1: O(n), since it just iterates through the array and swaps as necessary.
+ *
  ***/
 
 
-public class Mysterion 
-{    
+public class Mysterion
+{
   //--------------v  HELPER METHODS  v--------------
   //swap values at indices x, y in array o
   public static void swap( int x, int y, int[] o )
@@ -52,7 +58,7 @@ public class Mysterion
     o[y] = tmp;
   }
 
-  //print input array 
+  //print input array
   public static void printArr( int[] a )
   {
     for ( int o : a )
@@ -71,7 +77,7 @@ public class Mysterion
       swap( i, swapPos, d );
     }
   }
-    
+
   //return int array of size s, with each element fr range [0,maxVal)
   public static int[] buildArray( int s, int maxVal )
   {
@@ -85,25 +91,35 @@ public class Mysterion
 
   /**
    * int mysterion(int[],int,int,int)
-   * DESCRIP
-   * 
+   * sorts the array into two sections: One with values less than the
+   * target value and one with values greater than the target value
+   *
    * @param arr
    * @param a
    * @param b
    * @param c
-   * @return int 
+   * @return int
    *
    */
-  public static int mysterion( int arr[], int a, int b, int c)
+  public static int mysterion( int[] arr, int a, int b, int c)
   {
-	
+    int v = arr[c];
+    swap(c, b, arr);
+    int s = a;
+    for (int i = a; i < b; i++) {
+      if (arr[i] < v) {
+        swap(s, i, arr);
+        s += 1;
+      }
+    }
+    swap(b, s, arr);
+    return s;
   }//end mysterion
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     //init test arrays of magic numbers
     int[] arr1 = {8,21,17,69,343};
@@ -118,7 +134,7 @@ public class Mysterion
     System.out.println("arr1: ");
     printArr(arr1);
     mysterion(arr1,0,4,testC);
-    System.out.println("after mysterion w/ a=0,b=4,c=" 
+    System.out.println("after mysterion w/ a=0,b=4,c="
     + testC +"...");
     printArr(arr1);
     System.out.println("-----------------------");
@@ -126,7 +142,7 @@ public class Mysterion
     System.out.println("arr3:");
     printArr(arr3);
     mysterion(arr3,0,4,testC);
-    System.out.println("after mysterion w/ a=0,b=4,c=" 
+    System.out.println("after mysterion w/ a=0,b=4,c="
     + testC +"...");
     printArr(arr3);
     System.out.println("-----------------------");
@@ -134,7 +150,7 @@ public class Mysterion
     System.out.println("arr4:");
     printArr(arr4);
     mysterion(arr4,0,4,testC);
-    System.out.println("after mysterion w/ a=0,b=4,c=" 
+    System.out.println("after mysterion w/ a=0,b=4,c="
     + testC +"...");
     printArr(arr4);
     System.out.println("-----------------------");
@@ -142,10 +158,13 @@ public class Mysterion
     System.out.println("arr5:");
     printArr(arr5);
     mysterion(arr5,0,4,testC);
-    System.out.println("after mysterion w/ a=0,b=4,c=" 
+    System.out.println("after mysterion w/ a=0,b=4,c="
     + testC +"...");
     printArr(arr5);
     System.out.println("-----------------------");
+
+    } //end for loop
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main
 
