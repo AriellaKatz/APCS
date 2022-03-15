@@ -56,7 +56,7 @@ public class LList implements List //interface def must be in this dir
 
     // YOUR CODE HERE
     LLNode temp = _head;
-    for(int i = 0; i <= index; i++){
+    for(int i = 0; i < _size - index; i++){
       temp = temp.getNext();
       //System.out.println(temp);
     }
@@ -72,7 +72,7 @@ public class LList implements List //interface def must be in this dir
 
     // YOUR CODE HERE
     LLNode temp = _head;
-    for(int i = 0; i < _size - index - 1; i++){
+    for(int i = 0; i < _size - index; i++){
       temp = temp.getNext();
     }
       return temp.setCargo(newVal);
