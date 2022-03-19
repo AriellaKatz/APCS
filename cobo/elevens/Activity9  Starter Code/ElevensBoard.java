@@ -1,3 +1,11 @@
+/*
+Team Pink Lemonade: Ariella Katz, Emily Ortiz, Jacob Ng
+APCS pd6
+L07: But These Go Up To Eleven
+2022-03-18
+time spent: 0.25 hrs
+*/
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -53,7 +61,7 @@ public class ElevensBoard extends Board {
 	 */
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		return (containsPairSum11(selectedCards) || containsJQK(selectedCards));
 	}
 
 	/**
@@ -66,7 +74,7 @@ public class ElevensBoard extends Board {
 	 */
 	@Override
 	public boolean anotherPlayIsPossible() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		return (containsPairSum11(cardIndexes()) || containsJQK(cardIndexes()));
 	}
 
 	/**
@@ -78,7 +86,13 @@ public class ElevensBoard extends Board {
 	 *              contain an 11-pair; false otherwise.
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		for (int index0 : selectedCards) {
+			for (int index1 : selectedCards) {
+				if (cardAt(index0).pointValue() + cardAt(index1).pointValue() == 11)
+				{ return true; }
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -90,6 +104,14 @@ public class ElevensBoard extends Board {
 	 *              include a jack, a queen, and a king; false otherwise.
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		boolean jack = false;
+		boolean queen = false;
+		boolean king = false;
+		for (int index : selectedCards) {
+			if (cardAt(index).rank().equals("jack")) { jack = true; }
+			if (cardAt(index).rank().equals("queen")) { queen = true; }
+			if (cardAt(index).rank().equals("king")) { king = true; }
+		}
+	  return (jack && queen && king);
 	}
 }

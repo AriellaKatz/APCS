@@ -1,3 +1,11 @@
+/*
+Team Pink Lemonade: Ariella Katz, Emily Ortiz, Jacob Ng
+APCS pd6
+L07: But These Go Up To Eleven
+2022-03-18
+time spent: 0.25 hrs
+*/
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -11,17 +19,17 @@ public abstract class Board {
 	/**
 	 * The cards on this board.
 	 */
-	private Card[] cards;
+	protected Card[] cards;
 
 	/**
 	 * The deck of cards being used to play the current game.
 	 */
-	private Deck deck;
+	protected Deck deck;
 
 	/**
 	 * Flag used to control debugging print statements.
 	 */
-	private static final boolean I_AM_DEBUGGING = false;
+	protected static final boolean I_AM_DEBUGGING = false;
 
 	/**
 	 * Creates a new <code>Board</code> instance.

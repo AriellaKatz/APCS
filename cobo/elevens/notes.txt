@@ -98,3 +98,20 @@ methods that are currently blank.
         System.out.println(accCards);
       }
    e. replaceSelectedCards
+
+Activity 8:
+3. They don't cover the methods for finding sets of cards to remove, but such
+methods should not be in Boards.java since they will be looking for entirely
+different criteria and will have different names.
+
+Activity 9:
+1. Because size() is based on the length of cards, which is based on the
+hardcoded BOARD_SIZE.
+2. Selecting cards is dealt with in the GUI files.
+3. You would be able to call these methods since they're implemented in
+ElevensBoard. However, using the abstract Board may be preferable since
+interfaces only contain abstract methods and ElevensBoard would have to
+implement all of them, while the abstract Board can contain pre-implemented
+methods for all of its subclasses to use.
+
+Activity 10: 
