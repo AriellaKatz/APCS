@@ -67,5 +67,34 @@ Activity 3:
    }
 3. 0, 0, 0, 0
 
-Activity 5:
-1.
+Activity 7:
+1. List<Cards> deck
+   List<Cards> cards
+2. Until a removal is made, try the following steps for each card on the board:
+     Does it have a numerical value?
+       Yes: Look through the proceeding cards for a value that will add to 11.
+            If you find one, remove the two cards and go to the removal step.
+       No: Look through the proceeding cards for two other face cards.
+           If you find them, remove the three cards and go to the removal step.
+     If you get through the entire board without removing anything, you've lost.
+   After removing cards, replace them with new cards from the deck, if such
+   cards are available. Otherwise, continue with the remaining cards.
+3. It may need a method for selecting cards, depending on the implementation of
+methods that are currently blank.
+4. a. the constructor
+   b. replaceSelectedCards, anotherPlayIsPossible
+   c. | 0 | 1 | 3 | 6 | 7 |   |   |   |   |
+   d. public static void printCards(ElevensBoard board) {
+        List<Integer> cIndexes = board.cardIndexes();
+        String[] suits = new String(cIndexes.size());
+        String[] ranks = new String(cIndexes.size());
+        String[] pointValues = new String(cIndexes.size());
+        for (int i = 0; i < cIndexes.length; i++) {
+          suits[i] = (cards.cardAt(cIndexes.get(i))).suit();
+          ranks[i] = (cards.cardAt(cIndexes.get(i))).rank();
+          pointValues[i] = (cards.cardAt(cIndexes.get(i))).pointValue();
+        }
+        Deck accCards = new Deck(suits, ranks, pointValues);
+        System.out.println(accCards);
+      }
+   e. replaceSelectedCards
