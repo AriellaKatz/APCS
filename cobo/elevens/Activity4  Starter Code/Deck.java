@@ -1,3 +1,11 @@
+/*
+Team Pink Lemonade: Ariella Katz, Emily Ortiz, Jacob Ng
+APCS pd6
+L07: But These Go Up To Eleven
+2022-03-18
+time spent: 0.25 hrs
+*/
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -62,7 +70,13 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		for (int i = cards.size()-1; i >= 0; i--){
+			int r = (int)(Math.random() * i);
+			Card temp = cards.get(i);
+			cards.set(i, cards.get(r));
+			cards.set(r, temp);
+		}
+		size = cards.size();
 	}
 
 	/**

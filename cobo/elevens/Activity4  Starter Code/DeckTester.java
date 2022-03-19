@@ -1,3 +1,11 @@
+/*
+Team Pink Lemonade: Ariella Katz, Emily Ortiz, Jacob Ng
+APCS pd6
+L07: But These Go Up To Eleven
+2022-03-18
+time spent: 0.25 hrs
+*/
+
 /**
  * This is a class that tests the Deck class.
  */
@@ -51,6 +59,52 @@ public class DeckTester {
 		System.out.println();
 		System.out.println();
 
-		/* *** TO BE COMPLETED IN ACTIVITY 4 *** */
+		String[] ranks1 = {"two", "two", "two", "two",
+		        					"three", "three", "three", "three",
+		        					"four", "four", "four", "four",
+		        					"five", "five", "five", "five",
+		        					"six", "six", "six", "six",
+		        					"seven", "seven", "seven", "seven",
+		        					"eight", "eight", "eight", "eight",
+		        					"nine", "nine", "nine", "nine",
+		        					"ten", "ten", "ten", "ten",
+		        					"jack", "jack", "jack", "jack",
+		        					"queen", "queen", "queen", "queen",
+		        					"king", "king", "king", "king",
+		        					"ace", "ace", "ace", "ace"};
+		String[] suits1 = {"spades", "hearts", "clubs", "diamonds",
+		        					"spades", "hearts", "clubs", "diamonds",
+		        					"spades", "hearts", "clubs", "diamonds",
+		        					"spades", "hearts", "clubs", "diamonds",
+		        					"spades", "hearts", "clubs", "diamonds",
+		        					"spades", "hearts", "clubs", "diamonds",
+		        					"spades", "hearts", "clubs", "diamonds",
+		        					"spades", "hearts", "clubs", "diamonds",
+		        					"spades", "hearts", "clubs", "diamonds",
+		        					"spades", "hearts", "clubs", "diamonds",
+		        					"spades", "hearts", "clubs", "diamonds",
+		        					"spades", "hearts", "clubs", "diamonds",
+		        					"spades", "hearts", "clubs", "diamonds"};
+		int[] pointValues1 = {2, 2, 2, 2,
+		              			 3, 3, 3, 3,
+		              			 4, 4, 4, 4,
+		              			 5, 5, 5, 5,
+		              			 6, 6, 6, 6,
+		              			 7, 7, 7, 7,
+		              			 8, 8, 8, 8,
+		              			 9, 9, 9, 9,
+		              			 10, 10, 10, 10,
+		              			 10, 10, 10, 10,
+		              			 10, 10, 10, 10,
+		              			 10, 10, 10, 10,
+		              			 10, 10, 10, 10,
+		              			 11, 11, 11, 11};
+		Deck fiftyTwo = new Deck(ranks1, suits1, pointValues1);
+		for (int i = 0; i < 4; i++) {
+			System.out.println(i + ": ");
+			fiftyTwo.shuffle();
+			System.out.println(fiftyTwo);
+			System.out.println("");
+		}
 	}
 }

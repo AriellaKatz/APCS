@@ -1,3 +1,11 @@
+/*
+Team Pink Lemonade: Ariella Katz, Emily Ortiz, Jacob Ng
+APCS pd6
+L07: But These Go Up To Eleven
+2022-03-18
+time spent: 0.25 hrs
+*/
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -30,12 +38,12 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
-		cards = new List<Card>();
+		cards = new ArrayList<Card>();
 		for (int i = 0; i < ranks.length; i++) {
 			cards.add(new Card(ranks[i], suits[i], values[i]));
 		}
-		size = cards.length;
-		cards.shuffle();
+		size = cards.size();
+		shuffle();
 	}
 
 
@@ -69,8 +77,11 @@ public class Deck {
 	 *         previously dealt.
 	 */
 	public Card deal() {
-		size--;
-		return cards[size];
+		if (this.isEmpty()) { return null; }
+		else {
+			size--;
+			return cards.get(size);
+		}
 	}
 
 	/**

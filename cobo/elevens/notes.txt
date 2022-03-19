@@ -1,0 +1,71 @@
+/*
+Team Pink Lemonade: Ariella Katz, Emily Ortiz, Jacob Ng
+APCS pd6
+L07: But These Go Up To Eleven
+2022-03-18
+time spent: many hrs
+*/
+
+Activity 2:
+1. A deck has/manipulates an ArrayList of cards.
+2. The deck contains 2 cards, since it can only make two complete sets of ranks,
+suits, and pointValues.
+3. String[] ranks = {"two", "two", "two, "two",
+                    "three", "three", "three", "three",
+                    "four", "four", "four", "four",
+                    "five", "five", "five", "five",
+                    "six", "six", "six", "six",
+                    "seven", "seven", "seven", "seven",
+                    "eight", "eight", "eight", "eight",
+                    "nine", "nine", "nine", "nine",
+                    "ten", "ten", "ten", "ten",
+                    "jack", "jack", "jack", "jack",
+                    "queen", "queen", "queen", "queen",
+                    "king", "king", "king", "king",
+                    "ace", "ace", "ace", "ace"};
+   String[] suits = {"spades", "hearts", "clubs", "diamonds",
+                    "spades", "hearts", "clubs", "diamonds",
+                    "spades", "hearts", "clubs", "diamonds",
+                    "spades", "hearts", "clubs", "diamonds",
+                    "spades", "hearts", "clubs", "diamonds",
+                    "spades", "hearts", "clubs", "diamonds",
+                    "spades", "hearts", "clubs", "diamonds",
+                    "spades", "hearts", "clubs", "diamonds",
+                    "spades", "hearts", "clubs", "diamonds",
+                    "spades", "hearts", "clubs", "diamonds",
+                    "spades", "hearts", "clubs", "diamonds",
+                    "spades", "hearts", "clubs", "diamonds",
+                    "spades", "hearts", "clubs", "diamonds"};
+   int[] pointValues = {2, 2, 2, 2,
+                       3, 3, 3, 3,
+                       4, 4, 4, 4,
+                       5, 5, 5, 5,
+                       6, 6, 6, 6,
+                       7, 7, 7, 7,
+                       8, 8, 8, 8,
+                       9, 9, 9, 9,
+                       10, 10, 10, 10,
+                       10, 10, 10, 10,
+                       10, 10, 10, 10,
+                       10, 10, 10, 10,
+                       10, 10, 10, 10,
+                       11, 11, 11, 11};
+4. Yes, because they will be paired up based on their indexes in their
+respective arrays.
+
+Activity 3:
+1. public static String flip() {
+     int val = (int)(Math.random() * 3);
+     if (val < 2) { return "heads"; }
+     else { return "tails"; }
+   }
+2. public static boolean arePermutations(int[] one, int[] two) {
+     for (int i = 0; i < one.length; i++) {
+       if (two.indexOf(one[i]) == -1) { return false; }
+     }
+     return true;
+   }
+3. 0, 0, 0, 0
+
+Activity 5:
+1.
