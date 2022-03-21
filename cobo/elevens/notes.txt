@@ -4,6 +4,14 @@ APCS pd6
 L07: But These Go Up To Eleven
 2022-03-18
 time spent: many hrs
+
+DISCO
+List is an interface, but you're still allowed to say List ___ = new ArrayList() (see question below)
+GUI allows for graphics in Java.
+We learned how to play the card game elevens.
+
+QCC
+Is ArrayList different than List?
 */
 
 Activity 2:
@@ -113,5 +121,3 @@ ElevensBoard. However, using the abstract Board may be preferable since
 interfaces only contain abstract methods and ElevensBoard would have to
 implement all of them, while the abstract Board can contain pre-implemented
 methods for all of its subclasses to use.
-
-Activity 10: 
