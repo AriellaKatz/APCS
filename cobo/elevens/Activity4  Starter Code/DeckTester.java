@@ -3,7 +3,7 @@ Team Pink Lemonade: Ariella Katz, Emily Ortiz, Jacob Ng
 APCS pd6
 L07: But These Go Up To Eleven
 2022-03-18
-time spent: 0.25 hrs
+time spent: 0.5 hrs
 */
 
 /**
