@@ -1,0 +1,13 @@
+Team Pink Lemonade (Ariella Katz, Jacob Ng, Emily Ortiz, Tom, Preguac, Applesauce)
+APCS pd6
+HW80: Generically Speaking
+2022-03-23
+time spent: 1.5 hours
+KtS consumed: many
+
+DISCO
+We can use T as a place holder for variable type
+
+QCC
+Why does add use addlast() ?
+Don't we add nodes to the front?
