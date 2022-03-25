@@ -13,14 +13,29 @@ KtS consumed: many
  * Facilitates familiarization with iterators
  **/
 
-/***
-    DISCO
-    We have to type cast it.next()
-    When we first use .next() it points to the first object in the list
-    QCC
-    SUMMARY THE FIRST:
-    SUMMARY THE SECOND:
-**/
+ /***
+     DISCO
+     We have to type cast it.next()
+     When we first use .next() it points to the first object in the list
+     QCC
+     Does iterator have private variables? How does it know what element to remove/ point to ?
+     Is there any correlation between scanner and iterator? (next and hasnext methods)
+     SUMMARY THE FIRST:
+     Similar to nodes, iterator has a next() method that returns the next element (returns an object) in the collection. This is like get next node.
+     Iterator also has remove but it's different than the one used in our linked lists (no index). It removes the element that the next() method
+     landed on? pointing to? gotten? Finally, theres hasNext() which is new and returns a boolean. It returns true if theres a next element in the collection.
+     SUMMARY THE SECOND:
+     ItrWork has method foundA which returns a boolean and takes in an Integer parameter and List of Integer as the other parameter. foundA uses a for each loop
+     to check the elements in the list to see if the integer parameter is in the list. If the integer parameter is in the list , return true. FoundB has the
+     same parameters and aalso returns a boolean. However, foundB uses Iterator methods to find the Integer key. foundB uses a temporary iterator pointer? and while
+     loop to iterate through the list. The while loop uses hasNext to know whether or not to keep iterating/ if there are any elements left. oddsA returns a list of integers
+     and takes in a list of integers as the only parameter. oddsA uses a for each loop to find all the odd integers. we use the conditional of % 2 == 1 then it must
+     be odd so at it to our output array list which is return at the end of the function. oddsB is the same as oddsA but uses iterator methods. Again, we need
+     a temporary iterator pointer. Then we used a while loop and has next to iterate through all the elements and for every element we use the conditional
+     %2 == 1 to see if the element is odd and if it should be added to the ouput list. Finally, we have removes even which returns void and takes in an integer list.
+     We need a temporary iterator pointer to iterate through the list. We iterate through the list with a while loop again and check for each element if it's even
+     by using % 2 == 0. If it is even, we use remove from the iterator interface. Unlike oddsA and B, this method actually edits the input parameter list.
+ **/
 
 
 
