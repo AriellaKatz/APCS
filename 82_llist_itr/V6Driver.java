@@ -1,3 +1,11 @@
+/*
+Team Pink Lemonade (Ariella Katz, Jacob Ng, Emily Ortiz, Tom, Preguac, Applesauce)
+APCS pd6
+HW82: Roll Your Own Iterator
+2022-03-25
+time spent: 1 hour
+*/
+
 /***
  * class V6Driver
  * ...for testing implementation of Iterable interface

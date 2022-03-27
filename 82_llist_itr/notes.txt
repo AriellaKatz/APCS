@@ -1,0 +1,10 @@
+/*
+Team Pink Lemonade (Ariella Katz, Jacob Ng, Emily Ortiz, Tom, Preguac, Applesauce)
+APCS pd6
+HW82: Roll Your Own Iterator
+2022-03-25
+time spent: 1 hour
+*/
+
+* null == null is valid but null.equals(null) is not. What exactly is null?
+  Is it a primitive, an object, or something else entirely?

@@ -1,3 +1,11 @@
+/*
+Team Pink Lemonade (Ariella Katz, Jacob Ng, Emily Ortiz, Tom, Preguac, Applesauce)
+APCS pd6
+HW82: Roll Your Own Iterator
+2022-03-25
+time spent: 1 hour
+*/
+
 /***
  * class LList v6
  * Implements a linked list of DLLNodes.
@@ -152,9 +160,9 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
 
 
   //return an Iterator over this list
-  public /* YOUR CODE HERE */
+  public Iterator<T> iterator()
   {
-    /* YOUR CODE HERE */
+    return new MyIterator();
   }
 
   //--------------------------------------------------------
@@ -254,9 +262,7 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     //constructor
     public MyIterator()
     {
-      _dummy = _head.getPrev();
-      _dummy.setPrev(null);
-      _dummy.setNext(_head);
+      _dummy = new DLLNode(null, null, _head);
       _okToRemove = false;
     }
 
@@ -265,28 +271,31 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     //return true if iteration has more elements.
     public boolean hasNext()
     {
-      if (!(_dummy.nextNode().equals(null))) { return true; }
-      else { return false; }
+      if ((_dummy == null) || (_dummy.getNext() == null)) {
+        return false;
+      }
+      else { return true; }
     }
 
 
     //return next element in this iteration
     public T next()
     {
-      _dummy = _dummy.nextNode();
+      _dummy = _dummy.getNext();
       _okToRemove = true;
-      return _dummy;
+      return _dummy.getCargo();
     }
-
 
     //return last element returned by this iterator (from last next() call)
     //postcondition: maintains invariant that _dummy always points to a node
     //               (...so that hasNext() will not crash)
     public void remove()
     {
-            _dummy = _dummy.getPrev();
-            _dummy.setNext(_dummy.getNext().getNext());
-            _dummy.getNext().setPrev(_dummy);
+      if (_okToRemove) {
+        _dummy = _dummy.getPrev();
+        _dummy.setNext(_dummy.getNext().getNext());
+        _dummy.getNext().setPrev(_dummy);
+      }
     }
     //--------------^  Iterator interface methods  ^-------------
     //-----------------------------------------------------------
