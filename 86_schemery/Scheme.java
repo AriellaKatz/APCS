@@ -35,6 +35,12 @@ public class Scheme
    **/
   public static String evaluate( String expr )
   {
+    //transcribe the expression into a stack
+    String[] elements = expr.split("\\s+");
+    Stack<String> stack1 = new LLStack<String>();
+    for (int i = 0; i < elements.length; i++) {
+      stack1.push(elements[i]);
+    }
 
   }//end evaluate()
 
