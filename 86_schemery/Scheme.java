@@ -1,3 +1,11 @@
+/*
+Team Pink Lemonade (Ariella Katz, Jacob Ng, Emily Ortiz, Tom, Preguac, Applesauce)
+APCS pd6
+HW86: What a Racket
+2022-03-31
+time spent: 1.0 hours
+*/
+
 /***
  * class Scheme
  * Simulates a rudimentary Scheme interpreter
@@ -15,7 +23,7 @@ public class Scheme
 {
   /***
    * precond:  Assumes expr is a valid Scheme (prefix) expression,
-   *           with whitespace separating all operators, parens, and 
+   *           with whitespace separating all operators, parens, and
    *           integer operands.
    * postcond: Returns the simplified value of the expression, as a String
    * eg,
