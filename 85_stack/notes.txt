@@ -1,0 +1,18 @@
+Team Pink Lemonade (Ariella Katz, Jacob Ng, Emily Ortiz, Tom, Preguac, Applesauce)
+APCS pd6
+HW85: Leon Leonwood Stack
+2022-03-30
+time spent: 1.0 hours
+
+DISCO:
+0. PANCAKES can only be used in the implementation of a class, not in the
+initiation of one. When you have Class<Z> tester = new Class<Z>(), Z must be an
+actual class, not a generalization.
+1. The compiler will only recognize what PANCAKES is if it's included in the
+heading of the class.
+QCC:
+0. Once we wrote ALStack, we literally copied and pasted it into LLStack and
+replaced any occurrences of "ALStack" in the code with "LLStack", and it worked
+perfectly. Since there's no difference in coding ALStack or LLStack, what makes
+one better than the other? Should we consider the behind-the-scenes work of the
+ArrayList and LinkedList classes?
