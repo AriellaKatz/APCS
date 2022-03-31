@@ -12,8 +12,11 @@ time spent: 1.0 hours
  *
  * ALGORITHM for EVALUATING A SCHEME EXPRESSION:
  *   1. Steal underpants.
- *   2. ...
- *   5. Profit!
+ *   2. Push elements onto stack 1 until you get to a ).
+ *   3. Pop off elements from stack 1 and push them onto stack 2 until you get to a (.
+ *   4. Unload stack 2 and push the value onto stack 1.
+ *   5. Continue pushing elements onto stack 1 until you finish the String
+ *   6. Profit!
  *
  * STACK OF CHOICE: ____ by ____
  * b/c ...
