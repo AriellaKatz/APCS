@@ -6,6 +6,17 @@ HW86: What a Racket
 time spent: 1.0 hours
 */
 
+/*
+DISCO:
+0. For the return value of evaluate(), we had to pop off the single value left
+in stack1 and return that, since stack1 itself cannot be String-ified.
+1. *= is a thing!
+QCC:
+0. None of our Stacks have a toString().
+1. How might we do this recursively instead of with a for loop? What would the
+base case be?
+*/
+
 /***
  * class Scheme
  * Simulates a rudimentary Scheme interpreter
@@ -35,13 +46,36 @@ public class Scheme
    **/
   public static String evaluate( String expr )
   {
-    //transcribe the expression into a stack
     String[] elements = expr.split("\\s+");
     Stack<String> stack1 = new LLStack<String>();
-    for (int i = 0; i < elements.length; i++) {
-      stack1.push(elements[i]);
-    }
+    Stack<String> stack2 = new LLStack<String>();
+    for (int m = 0; m < elements.length; m++) {
+      stack1.push(elements[m]);
+      if (elements[m].equals(")")) {
+        while (!(stack1.peekTop().equals("("))) {
+          stack2.push(stack1.pop());
+        }
 
+        String val;
+        if (stack2.peekTop().equals("+")) {
+          stack2.pop();
+          val = unload(1, stack2);
+        }
+        else if (stack2.peekTop().equals("-")) {
+          stack2.pop();
+          val = unload(2, stack2);
+        }
+        else {
+          stack2.pop();
+          val = unload(3, stack2);
+        }
+
+        stack1.pop();
+        stack1.push(val);
+      }
+    }
+    String retstr = stack1.pop();
+    return retstr;
   }//end evaluate()
 
 
@@ -53,7 +87,27 @@ public class Scheme
    **/
   public static String unload( int op, Stack<String> numbers )
   {
-
+    Integer retVal;
+    if (op == 1) {
+      retVal = Integer.parseInt(numbers.pop());
+      while (!(numbers.peekTop().equals(")"))) {
+        retVal += Integer.parseInt(numbers.pop());
+      }
+    }
+    else if (op == 2) {
+      retVal = Integer.parseInt(numbers.pop());
+      while (!(numbers.peekTop().equals(")"))) {
+        retVal -= Integer.parseInt(numbers.pop());
+      }
+    }
+    else {
+      retVal = Integer.parseInt(numbers.pop());
+      while (!(numbers.peekTop().equals(")"))) {
+        retVal *= Integer.parseInt(numbers.pop());
+      }
+    }
+    String retStr = "" + retVal;
+    return retStr;
   }//end unload()
 
 
@@ -75,7 +129,6 @@ public class Scheme
   public static void main( String[] args )
   {
 
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       String zoo1 = "( + 4 3 )";
       System.out.println(zoo1);
       System.out.println("zoo1 eval'd: " + evaluate(zoo1) );
@@ -95,6 +148,7 @@ public class Scheme
       System.out.println(zoo4);
       System.out.println("zoo4 eval'd: " + evaluate(zoo4) );
       //...-4
+          /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
   }//main()
 
