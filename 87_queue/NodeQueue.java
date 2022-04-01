@@ -4,7 +4,7 @@ public class NodeQueue {
   private int _qsize;
 
   public NodeQueue {
-//    _queue = new LLNode(null, )
+    _queue = null;
     _qsize = 0;
   }
 
