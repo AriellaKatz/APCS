@@ -29,8 +29,9 @@ base case be?
  *   5. Continue pushing elements onto stack 1 until you finish the String
  *   6. Profit!
  *
- * STACK OF CHOICE: ____ by ____
- * b/c ...
+ * STACK OF CHOICE: LLStack by library (two of them)
+ * b/c ... LinkedLists are cooler, and they feel Stackier because only the
+ * "first" element is easily accessible.
  **/
 
 public class Scheme
