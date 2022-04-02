@@ -1,41 +1,52 @@
-public class NodeQueue {
+public class NodeQueue<QUASAR> implements Queue<QUASAR> {
 
   private LLNode _queue;
   private int _qsize;
 
-  public NodeQueue {
+  public NodeQueue() {
     _queue = null;
     _qsize = 0;
   }
 
   public QUASAR dequeue() {
-
+    LLNode temp = _queue;
+    while (!(temp.getNext().getNext().equals(null))) {
+      temp = temp.getNext();
+    }
+    QUASAR ret = temp.getNext().getCargo();
+    temp.setNext(null);
+    return ret;
   }
 
   //means of adding an element to collection:
   //Enqueue an element onto the back of this queue.
   public void enqueue( QUASAR x ) {
-
+    LLNode temp = new LLNode(x, _queue);
+    _queue = temp;
   }
 
   //Returns true if this queue is empty, otherwise returns false.
   public boolean isEmpty() {
-
+    return (_queue.getCargo().equals(null));
   }
 
   //Returns the first element of the queue without dequeuing it.
   public QUASAR peekFront() {
-
+    LLNode temp = _queue;
+    while (!(temp.getNext().equals(null))) {
+      temp = temp.getNext();
+    }
+    return temp.getCargo();
   }
 
-  private class LLNode
+  private class LLNode<QUASAR>
   {
     //instance vars
-    private String _cargo;
+    private QUASAR _cargo;
     private LLNode _nextNode;
 
     // constructor
-    public LLNode( String value, LLNode next )
+    public LLNode( QUASAR value, LLNode next )
     {
       _cargo = value;
       _nextNode = next;
@@ -43,7 +54,7 @@ public class NodeQueue {
 
 
     //--------------v  ACCESSORS  v--------------
-    public String getCargo()
+    public QUASAR getCargo()
     {
       return _cargo;
     }
@@ -56,9 +67,9 @@ public class NodeQueue {
 
 
     //--------------v  MUTATORS  v--------------
-    public String setCargo( String newCargo )
+    public QUASAR setCargo( QUASAR newCargo )
     {
-      String foo = getCargo();
+      QUASAR foo = getCargo();
       _cargo = newCargo;
       return foo;
     }
