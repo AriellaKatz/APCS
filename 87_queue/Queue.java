@@ -1,3 +1,11 @@
+/*
+Team Pink Lemonade (Ariella Katz, Jacob Ng, Emily Ortiz, Tom, Preguac, Applesauce)
+APCS pd6
+HW86: What a Racket
+2022-04-01
+time spent: 1.0 hours
+*/
+
 /***
  * interface Queue
  * Includes only methods listed in AP subset of Java
