@@ -9,24 +9,24 @@ time spent: 1.0 hrs
 public class Cereal {
 
   private String _name;
-  private char _type;
+  private String _type;
   private int _cals;
-  private byte _protein;
-  private byte _fat;
+  private int _protein;
+  private int _fat;
   private int _sodium;
-  private float _fiber;
-  private float _carbs;
-  private byte _sugar;
+  private double _fiber;
+  private double _carbs;
+  private int _sugar;
   private int _potass;
   private int _vitamins;
-  private byte _shelf;
-  private float _weight;
-  private float _cups;
+  private int _shelf;
+  private double _weight;
+  private double _cups;
   private double _rating;
 
-  public Cereal(String name, char type, int cals, byte protein, byte fat,
-  int sodium, float fiber, float carbs, byte sugar, int potass, int vitamins,
-  byte shelf, float weight, float cups, double rating) {
+  public Cereal(String name, String type, int cals, int protein, int fat,
+  int sodium, double fiber, double carbs, int sugar, int potass, int vitamins,
+  int shelf, double weight, double cups, double rating) {
     _name = name;
     _type = type;
     _cals = cals;
@@ -48,28 +48,28 @@ public class Cereal {
   public String name() {
     return _name;
   }
-  public char type() {
+  public String type() {
     return _type;
   }
   public int calories() {
     return _cals;
   }
-  public byte protein() {
+  public int protein() {
     return _protein;
   }
-  public byte fat() {
+  public int fat() {
     return _fat;
   }
   public int sodium() {
     return _sodium;
   }
-  public float fiber() {
+  public double fiber() {
     return _fiber;
   }
-  public float carbohydrates() {
+  public double carbohydrates() {
     return _carbs;
   }
-  public byte sugar() {
+  public int sugar() {
     return _sugar;
   }
   public int potassium() {
@@ -78,13 +78,13 @@ public class Cereal {
   public int vitamins() {
     return _vitamins;
   }
-  public byte shelf() {
+  public int shelf() {
     return _shelf;
   }
-  public float weight() {
+  public double weight() {
     return _weight;
   }
-  public float cups() {
+  public double cups() {
     return _cups;
   }
   public double rating() {
@@ -112,8 +112,14 @@ public class Cereal {
     return retStr;
   }
 
-  public void main(String[] args) {
-    
+  public static void main(String[] args) {
+    Cereal mykolyk = new Cereal("mykolyk", "H", 1000, 21, 10, 1000000, 0.0,
+    30.0, 6, -10, 0, 2, 1.33, 0.66, 63.689274);
+    System.out.println(mykolyk);
+
+    Cereal shmexy = new Cereal("shmexy", "H", 69, 6, 6, 69696969, 6.9, 6.9, 9,
+    6060, 69, 6, 9, 0.69, 69.696969);
+    System.out.println(shmexy);
   }
 
 }
