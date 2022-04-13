@@ -1,0 +1,12 @@
+Pink Lemonade (Ariella Katz, Jacob Ng, Emily Ortiz)
+APCS Pd 6
+HW91: Deque the Halls
+2022-04-13
+Time Spent: 0.5 hrs
+
+DISCO
+* All of the methods in Deque are also in the LinkedList interface.
+
+QCC:
+* Why would you use getFirst/Last() or removeFirst/Last() when peekFirst/Last() and pollFirst/Last(), respectfully, do the same things without the possibility of throwing an error?
+* You can always check to see if the method returns null, but if an error is thrown, it will halt the process of running the code.
