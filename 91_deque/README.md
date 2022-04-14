@@ -1,8 +1,8 @@
-### Pink Lemonade (Ariella Katz, Jacob Ng, Emily Ortiz)
+* Pink Lemonade (Ariella Katz, Jacob Ng, Emily Ortiz)
 * APCS Pd 6
 * HW91: Deque the Halls
 * 2022-04-13
-* Time Spent: 0.5 hrs
+* Time Spent: 1.0 hrs
 
 Order of priority (greatest to least):
 * public void addFirst(Card e);

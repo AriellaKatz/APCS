@@ -2,7 +2,7 @@
 // APCS Pd 6
 // HW91: Deque the Halls
 // 2022-04-13
-// Time Spent: 0.5 hrs
+// Time Spent: 1.0 hrs
 
 import java.util.LinkedList;
 import java.util.Iterator;
@@ -129,21 +129,4 @@ public class Dequey<D> implements Deque<D>{
     return retStr;
   }//end toString()
 
-  public static void main(String[] args){
-      Dequey<String> Bob = new Dequey<String>();
-      System.out.println(Bob);
-      Bob.addLast("you");
-      System.out.println(Bob);
-      Bob.addLast("are");
-      System.out.println(Bob);
-      Bob.addLast("smart.");
-      System.out.println(Bob);
-      Bob.addFirst("no,");
-      System.out.println(Bob);
-      System.out.println("Should print : no, you are smart.");
-
-      Bob.removeFirst();
-      System.out.println(Bob);
-      System.out.println("Should print : you are smart.");
-  } // end main
 } // end class
