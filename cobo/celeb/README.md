@@ -6,8 +6,8 @@
 * time spent: HORIZONTAL_SCROLLBAR_NEVER
 
 ## To-Do List
-1. Compare QCC with teammates
-2. Recall in-class activity to answer questions
+1. ~~Compare QCC with teammates~~
+2. ~~Recall in-class activity to answer questions~~
 3. Make a UML diagram of the Celebrity class
 4. Implement Celebrity class while achieving compilability
 5. Read Java GUI
