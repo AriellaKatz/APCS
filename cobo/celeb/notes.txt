@@ -19,8 +19,7 @@ Activity 1:
   3. Play a game
      Update score
      Fill the hat
-  4. All of them, because methods are supposed to implement behaviors
-     and all of them seem necessary.
+  4. All of them, because methods are supposed to implement behaviors and all of them seem necessary.
   5. Ask for user input to create celebrity cards and their hints (new
      Celebritys)
      Add all the Celebritys to the _hat and shake it
@@ -31,4 +30,26 @@ Activity 1:
   6. Ball: color, size, bounciness
      Material might be an object, which has bounciness, color
 
-Activity 2: 
+Activity 2:
+  1. A constructor is used to construct a new object. it is useful for if you want multiple objects of the same type but with different attributes.
+  2. The heading of a constructor is:   public <NameO'CLass>(<Params>(maybe))
+  3. String _hint
+     String _name
+  4. getHint()
+     getName()
+  7. 	public Celebrity()
+  	  {
+  		  _clue = "He inspires learnination and greatness";
+  		  _answer = "Mykolyk";
+  	  }
+
+Activity 3:
+  2. private ArrayList<Celebrity> celebGameList;
+  3. private Celebrity gameCelebrity;
+  4. celebGameList = new ArrayList<Celebrity>();
+  12. CelebrityGame
+  13. None
+
+Activity 4:
+  1. Nope
+  2. Same thing, but offers type of celebrity as a hint (LiteratureCelebrity)

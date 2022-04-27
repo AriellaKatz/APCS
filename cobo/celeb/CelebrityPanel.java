@@ -1,3 +1,10 @@
+/*
+Erica's Fans and Hugo (Hugo Jenkins, Kaitlin Ho, Ariella Katz)
+APCS pd 6
+L09: Some Folks Call It A Charades
+2022-04-26
+time spent: hrs
+*/
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.Color;
@@ -6,92 +13,92 @@ import java.awt.event.ActionEvent;
 
 /**
  * CelebrityPanel for the game Celebrity
- * 
+ *
  * @author cody.henrichsen
  * @version 2.9 18/09/2018 Adjusted the listener functionality.
  */
 public class CelebrityPanel extends JPanel
 {
-  
+
   /**
    * The button pressed when making a guess.
    */
   private JButton guessButton;
-  
+
   /**
    * The button pressed to restart the game
    */
   private JButton resetButton;
-  
+
   /**
    * The label used to identify what to type in the field
    */
   private JLabel guessLabel;
-  
+
   /**
    * The label to hold the static text for the timer
    */
   private JLabel staticTimerLabel;
-  
+
   /**
    * The label to hold the dynamic text of the timer.
    */
   private JLabel dynamicTimerLabel;
-  
+
   /**
    * Timer for display
    */
   private Timer countdownTimer;
-  
+
   /**
    * Listener for the countdownTimer
    */
   private ActionListener timerListener;
-  
+
   /**
    * Holds the user and program input text area and allows the text to scroll.
    */
   private JScrollPane cluePane;
-  
+
   /**
    * The text area for user and program information
    */
   private JTextArea clueArea;
-  
+
   /**
    * The user interaction field.
    */
   private JTextField guessField;
-  
+
   /**
    * Layout manager for the panel. Uses constraints between components to
    * align or spring from edges.
    */
   private SpringLayout panelLayout;
-  
+
   /**
    * The String used when a user correctly guesses the Celebrity
    */
   private String success;
-  
+
   /**
    * The String used when a user has not guessed correctly.
    */
   private String tryAgain;
-  
+
   /**
    * The current value of the time in seconds.
    */
   private int seconds;
-  
+
   /**
    * Reference to the game instance.
    */
   private CelebrityGame controller;
-  
+
   /**
    * Builds the CelebrityPanel and initializes all data members.
-   * 
+   *
    * @param controller
    *            Reference to the Game passed when the CelebrityPanel is
    *            instantiated in the Frame.
@@ -113,12 +120,12 @@ public class CelebrityPanel extends JPanel
     this.tryAgain = "You have chosen poorly, try again!\nThe clue is: ";
     this.seconds = 60;
     this.countdownTimer = new Timer(1000, timerListener);
-    
+
     setupPanel();
     setupLayout();
     setupListeners();
   }
-  
+
   /**
    * Helper method to add all components to the panel and adjust GUI settings
    * including scroll bars, and line wrap.
@@ -133,24 +140,24 @@ public class CelebrityPanel extends JPanel
     this.add(resetButton);
     this.add(dynamicTimerLabel);
     this.add(staticTimerLabel);
-    
+
     //Changes the font to be larger than default
     staticTimerLabel.setFont(new Font("Helvetica", Font.BOLD,20));
     dynamicTimerLabel.setFont(new Font("Helvetica", Font.BOLD,20));
-    
+
     // These lines allow vertical scrolling but not horizontal.
     cluePane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     cluePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-    
+
     // These lines allow word and line wrapping for the clue area.
     clueArea.setWrapStyleWord(true);
     clueArea.setLineWrap(true);
-    
+
     // The clue area is set to not be editable by the user :D
     clueArea.setEditable(false);
-    
+
   }
-  
+
   /**
    * Using a helper method to hold all the constraints for the GUI components
    * in the panel
@@ -176,15 +183,15 @@ public class CelebrityPanel extends JPanel
     panelLayout.putConstraint(SpringLayout.WEST, staticTimerLabel, 10, SpringLayout.EAST, resetButton);
     panelLayout.putConstraint(SpringLayout.NORTH, dynamicTimerLabel, 0, SpringLayout.NORTH, staticTimerLabel);
     panelLayout.putConstraint(SpringLayout.WEST, dynamicTimerLabel, 5, SpringLayout.EAST, staticTimerLabel);
-    
+
   }
-  
+
   /*
    * Attaches listeners to the GUI components of the program
    */
   private void setupListeners()
   {
-    
+
     /**
      * Attaches a listener to the resetButton and uses it to call the reset
      * method in the game.
@@ -196,7 +203,7 @@ public class CelebrityPanel extends JPanel
         controller.play();
       }
     });
-    
+
     /**
      * Attaches a listener to the guessButton and uses it to call the
      * updateScreen method in the panel.
@@ -208,7 +215,7 @@ public class CelebrityPanel extends JPanel
         updateScreen();
       }
     });
-    
+
     /**
      * Attaches a listener to the guessField for enter key press and uses it
      * to call the updateScreen method in the panel.
@@ -220,7 +227,7 @@ public class CelebrityPanel extends JPanel
         updateScreen();
       }
     });
-    
+
     countdownTimer.addActionListener(new ActionListener()
                                        {
       public void actionPerformed(ActionEvent timerFire)
@@ -228,10 +235,10 @@ public class CelebrityPanel extends JPanel
         timerFires();
       }
     });
-    
+
     countdownTimer.start();
   }
-  
+
   /**
    * Helper method for when the ActionListener attached to the timer fires.
    * Sets the text of the label to match the remaining time and a message at
@@ -240,13 +247,13 @@ public class CelebrityPanel extends JPanel
   private void timerFires()
   {
     seconds--;
-    
+
     if (seconds <= 10)
     {
       dynamicTimerLabel.setFont(new Font("Helvetica", Font.BOLD,20));
       dynamicTimerLabel.setForeground(Color.RED);
     }
-    
+
     if (seconds < 0)
     {
       staticTimerLabel.setText("Times up!");
@@ -260,12 +267,12 @@ public class CelebrityPanel extends JPanel
     {
       dynamicTimerLabel.setText("" + seconds);
     }
-    
+
   }
-  
+
   /**
    * Method to add a clue to the screen from the game instance
-   * 
+   *
    * @param clue
    *            The clue to add to the screen.
    */
@@ -279,7 +286,7 @@ public class CelebrityPanel extends JPanel
     guessButton.setEnabled(true);
     guessField.setEnabled(true);
   }
-  
+
   /**
    * Refactored method to allow both button and enter press in the guessField
    * to provide the same functionality.
@@ -288,7 +295,7 @@ public class CelebrityPanel extends JPanel
   {
     String currentGuess = guessField.getText();
     clueArea.append("\nYou guessed: " + currentGuess + "\n");
-    
+
     if (controller.processGuess(currentGuess))
     {
       clueArea.append(success + controller.sendClue());
@@ -300,7 +307,7 @@ public class CelebrityPanel extends JPanel
       clueArea.append(tryAgain);
       clueArea.append(controller.sendClue());
     }
-    
+
     if (controller.getCelebrityGameSize() == 0)
     {
       clueArea.append("\nNo more celebrities to guess.");
@@ -309,7 +316,7 @@ public class CelebrityPanel extends JPanel
     }
     // Used to move the text area to the current cursor
     clueArea.setCaretPosition(clueArea.getDocument().getLength());
-    
+
   }
-  
+
 }

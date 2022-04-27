@@ -1,3 +1,10 @@
+/*
+Erica's Fans and Hugo (Hugo Jenkins, Kaitlin Ho, Ariella Katz)
+APCS pd 6
+L09: Some Folks Call It A Charades
+2022-04-26
+time spent: hrs
+*/
 /**
  * Celebrity base class for the Celebrity game.
  * @author cody.henrichsen
@@ -8,11 +15,16 @@ public class Celebrity
 	/**
 	 * The clue to determine the celebrity
 	 */
-	
+	protected String _clue;
+	protected String _answer;
 	/**
 	 * The answer or name of the celebrity.
 	 */
-	
+	public Celebrity()
+	{
+		_clue = "He inspires learnination and greatness";
+		_answer = "Mykolyk";
+	}
 	/**
 	 * Creates a Celebrity instance with the supplied answer and clue
 	 * @param answer
@@ -20,6 +32,8 @@ public class Celebrity
 	 */
 	public Celebrity(String answer, String clue)
 	{
+		_clue = clue;
+		_answer = answer;
 	}
 
 	/**
@@ -28,7 +42,7 @@ public class Celebrity
 	 */
 	public String getClue()
 	{
-		return null;
+		return _clue;
 	}
 
 	/**
@@ -37,7 +51,7 @@ public class Celebrity
 	 */
 	public String getAnswer()
 	{
-		return null;
+		return _answer;
 	}
 
 	/**
@@ -46,7 +60,7 @@ public class Celebrity
 	 */
 	public void setClue(String clue)
 	{
-		
+		_clue = clue;
 	}
 
 	/**
@@ -55,16 +69,18 @@ public class Celebrity
 	 */
 	public void setAnswer(String answer)
 	{
-		
+		_answer = answer;
 	}
-	
+
 	/**
 	 * Provides a String representation of the Celebrity.
 	 */
 	@Override
 	public String toString()
 	{
-		return null;
+		String s = "";
+		s += _answer + ": " + _clue;
+		return s;
 	}
-	
+
 }
