@@ -7,6 +7,8 @@ time spent: hrs
 DISCO:
 
 QCC:
+* The current TreeNode setup means that the tree is unidirectional (like a
+singly linked list, as opposed to a doubly linked list).
 
 With L = level, d = depth, h = height...
 1. a perfect binary tree has sum(0, h, 2^L) nodes.
