@@ -55,7 +55,17 @@ the pre-order and the in-order traversals for the tree
 
 procedure:
 1. The first node in the pre-order traversal is the root node.
-2.
+2. Place the next node, comparing the resulting tree to the pre-order and the
+in-order traversals to check:
+  a. Try each available slot, starting with the left child of the previous node,
+  then that node's right child, then working your way up the tree, trying left
+  and then right children (as available) as you go.
+    i. If the first node in the in-order traversal is not the leftmost node on
+    the tree, something is wrong.
+  b. If none of them work, that means the placement of the previous node doesn't
+  work, so try something else for that one.
+  c. If the previous node is the root node, that means there are no possible
+  solutions.
 
 ================================================
 
@@ -66,7 +76,17 @@ the post-order and the in-order traversals for the tree
 
 procedure:
 1. The last node in the post-order traversal is the root node.
-2.
+2. Place the next node, comparing the resulting tree to the post-order and the 
+in-order traversals to check:
+  a. Try each available slot, starting with the left child of the previous node,
+  then that node's right child, then working your way up the tree, trying left
+  and then right children (as available) as you go.
+    i. If the first node in the in-order traversal is not the leftmost node on
+    the tree, something is wrong.
+  b. If none of them work, that means the placement of the previous node doesn't
+  work, so try something else for that one.
+  c. If the previous node is the root node, that means there are no possible
+  solutions.
 
 ================================================
 
