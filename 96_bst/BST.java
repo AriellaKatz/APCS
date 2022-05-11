@@ -150,7 +150,7 @@ public class BST
       /*****************************************************
        * int height()
        * returns height of this tree (length of longest leaf-to-root path)
-       * eg: a 1-node tree has height 1
+       * eg: a 1-node tree has height 0
        *****************************************************/
       public int height()
       {
