@@ -98,4 +98,8 @@ public class TreeNode
     _cargo = theNewValue;
   }
 
+  public String toString() {
+    return "" + _cargo;
+  }
+
 }//end class
