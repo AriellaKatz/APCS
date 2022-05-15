@@ -8,7 +8,7 @@ time spent: 1.0 hrs
 
 import java.util.*;
 
-public class ArrayPriorityQueue<Integer> {
+public class ArrayPriorityQueue {
 
   private ArrayList<Integer> _pq;
 
@@ -16,19 +16,22 @@ public class ArrayPriorityQueue<Integer> {
     _pq = new ArrayList<Integer>();
   }
 
+  //O(1)
   public void add(Integer x) {
     _pq.add(x);
   }
 
+  //O(1)
   public boolean isEmpty() {
     return (_pq.size() == 0);
   }
 
+  //O(n)
   public Integer peekMin() {
     if (!isEmpty()) {
       Integer min = Integer.MAX_VALUE;
       for (int i = 0; i < _pq.size(); i++) {
-        if (_pq.get(i) < min) {
+        if ((int) _pq.get(i) < (int) min) {
           min = _pq.get(i);
         }
       }
@@ -39,15 +42,16 @@ public class ArrayPriorityQueue<Integer> {
     }
   }
 
+  //O(n)
   public Integer removeMin() {
     if (!isEmpty()) {
       int minInd = 0;
       for (int i = 0; i < _pq.size(); i++) {
-        if (_pq.get(i) < _pq.get(minInd)) {
+        if ((int) _pq.get(i) < (int) _pq.get(minInd)) {
           minInd = i;
         }
       }
-      return _pq.remove(i);
+      return _pq.remove(minInd);
     }
     else {
       return null; //returns null if it's already empty
@@ -55,7 +59,7 @@ public class ArrayPriorityQueue<Integer> {
   }
 
   public static void main(String[] args) {
-    ArrayPriorityQueue<Integer> dn = new ArrayPriorityQueue();
+    ArrayPriorityQueue dn = new ArrayPriorityQueue();
   }
 
 }

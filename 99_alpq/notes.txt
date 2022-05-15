@@ -5,5 +5,9 @@ HW 99 - Some Are More Equal Than Others, Codified
 time spent: 1.0 hrs
 
 DISCO:
+* We have to typecast Integers as ints when comparing them?
 
 QCC:
+* What would "min" ential for Strings? If each character has an inherent value,
+then would a String's value just be the sum of its characters?
+* Problems with the gang signs
