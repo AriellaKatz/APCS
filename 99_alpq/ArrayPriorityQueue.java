@@ -60,6 +60,24 @@ public class ArrayPriorityQueue {
 
   public static void main(String[] args) {
     ArrayPriorityQueue dn = new ArrayPriorityQueue();
+    dn.add(5);
+    dn.add(3);
+    dn.add(4);
+    dn.add(7);
+    dn.add(8);
+    dn.add(1);
+    System.out.println("dn: "+  dn);
+
+    System.out.println();
+    System.out.println("min: " + dn.peekMin());
+    System.out.println("removeMin: " + dn.removeMin());
+    System.out.println("min: " + dn.peekMin());
+    System.out.println("removeMin: " + dn.removeMin());
+    System.out.println("min: " + dn.peekMin());
+    System.out.println("removeMin: " + dn.removeMin());
+
+    System.out.println();
+    System.out.println("dn: "+  dn);
   }
 
 }
