@@ -1,3 +1,11 @@
+/*
+AKH+D :: Ariella Katz, Kaitlin Ho, Hugo Jenkins
+APCS pd6
+HW 102 -
+2022-05-17
+time spent: 1.0 hrs
+*/
+
 /**
  * class ALHeap
  * SKELETON
@@ -17,6 +25,7 @@ public class ALHeap
    */
   public ALHeap()
   {
+    _heap = new ArrayList<Integer>();
   }
 
 
@@ -29,7 +38,12 @@ public class ALHeap
    */
   public String toString()
   {
-  }//O(?)
+    String retStr = "{";
+    for (Integer x : _heap) {
+      retStr += x + ", ";
+    }
+    retStr = retStr.substring(0, retStr.length()-2) + "}";
+  }//O(n)
 
 
   /**
@@ -38,7 +52,8 @@ public class ALHeap
    */
   public boolean isEmpty()
   {
-  }//O(?)
+    return _heap.size() == 0;
+  }//O(1)
 
 
   /**
@@ -48,7 +63,8 @@ public class ALHeap
    */
   public Integer peekMin()
   {
-  }//O(?)
+    return _heap.get(0);
+  }//O(1)
 
 
   /**
@@ -60,6 +76,19 @@ public class ALHeap
    */
   public void add( Integer addVal )
   {
+    _heap.add(addVal);
+    Integer parentIndex = (_heap.indexOf(addVal) - 1)/2;
+    while (addVal > _heap.get(parentIndex)) {
+      int ind = _heap.get(addVal);
+      _heap.set(ind, _heap.get(parentIndex));
+      _heap.set(parentIndex, addVal);
+      if (_heap.indexOf(addVal) != 0) {
+        parentIndex = (_heap.indexOf(addVal) - 1)/2;
+      }
+      else {
+        break;
+      }
+    }
   }//O(?)
 
 
@@ -98,7 +127,7 @@ public class ALHeap
   //swap for an ArrayList
   private void swap( int pos1, int pos2 )
   {
-    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );	
+    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
