@@ -1,9 +1,16 @@
 /*
 AKH+D :: Ariella Katz, Kaitlin Ho, Hugo Jenkins
 APCS pd6
-HW 102 -
+HW 102 - Heap On Heapin' On
 2022-05-17
 time spent: 1.0 hrs
+*/
+
+/*
+DISCO:
+
+QCC:
+
 */
 
 /**
@@ -12,7 +19,7 @@ time spent: 1.0 hrs
  * Implements a min heap using an ArrayList as underlying container
  */
 
-//import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class ALHeap
 {
@@ -43,6 +50,7 @@ public class ALHeap
       retStr += x + ", ";
     }
     retStr = retStr.substring(0, retStr.length()-2) + "}";
+    return retStr;
   }//O(n)
 
 
@@ -72,7 +80,12 @@ public class ALHeap
    * Inserts an element in the heap
    * Postcondition: Tree exhibits heap property.
    * ALGO:
-   * <your clear && concise procedure here>
+   * Add addVal to the end of the ArrayList.
+   * Find its parent (the parent's index is equal to half of one less addVal's
+      index).
+   * If it's less than its parent, swap them.
+   * Keep doing that until it either gets to the root or is greater than its
+   *  parent.
    */
   public void add( Integer addVal )
   {
@@ -89,7 +102,7 @@ public class ALHeap
         break;
       }
     }
-  }//O(?)
+  }//O(logn)
 
 
   /**
@@ -97,11 +110,26 @@ public class ALHeap
    * Removes and returns least element in heap.
    * Postcondition: Tree maintains heap property.
    * ALGO:
-   * <your clear && concise procedure here>
+   * Overwrite the root with the last leaf.
+   * Walk the "leaf" down, swapping it with the lesser of its children until
+   *  it's less than both children.
    */
   public Integer removeMin()
   {
-  }//O(?)
+    Integer lastLeaf = _heap.get(_heap.size()-1);
+    Integer prev = _heap.remove(_heap.size()-1);
+    _heap.set(0, lastLeaf);
+    int ind = 0;
+    while ((ind*2+1 <= _heap.size()-1 && ind*2+2 <= _heap.size()-1) &&
+    (lastLeaf > _heap.get(ind*2+1) || lastLeaf > _heap.get(ind*2+2))) {
+      swap(ind, minChildPos(ind));
+      ind = _heap.indexOf(lastLeaf);
+    }
+    if (ind*2+1 <= _heap.size() && lastLeaf > _heap.get(ind*2+1)) {
+      swap(ind, ind*2+1);
+    }
+    return prev;
+  }//O(logn)
 
 
   /**
@@ -112,7 +140,17 @@ public class ALHeap
    */
   private int minChildPos( int pos )
   {
-  }//O(?)
+    if (pos*2+1 <= _heap.size()-1 && pos*2+2 <= _heap.size()) {
+      if (_heap.get(pos*2+1) < _heap.get(pos*2+2)) {
+        return pos*2+1;
+      }
+      else { return pos*2+2; }
+    }
+    else if (pos*2+1 <= _heap.size()-1) {
+      return pos*2+1;
+    }
+    else { return -1; }
+  }//O(1)
 
 
   //~~~~~~~~~~~~~ aux helper fxns ~~~~~~~~~~~~~~
