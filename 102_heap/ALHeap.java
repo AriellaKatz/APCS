@@ -8,9 +8,11 @@ time spent: 1.0 hrs
 
 /*
 DISCO:
-
+0. Ryan be hating
+1. Heaps can be stored and communicated in ArrayLists
 QCC:
-
+0. Sometimes, just add more if statements to account for all case
+1. Could we store the other types of trees we have learned in ArrayLists?
 */
 
 /**
@@ -45,6 +47,7 @@ public class ALHeap
    */
   public String toString()
   {
+    if (_heap.size() == 0) return "{ }";
     String retStr = "{";
     for (Integer x : _heap) {
       retStr += x + ", ";
@@ -92,7 +95,7 @@ public class ALHeap
     _heap.add(addVal);
     Integer parentIndex = (_heap.indexOf(addVal) - 1)/2;
     while (addVal > _heap.get(parentIndex)) {
-      int ind = _heap.get(addVal);
+      int ind = _heap.indexOf(addVal);
       _heap.set(ind, _heap.get(parentIndex));
       _heap.set(parentIndex, addVal);
       if (_heap.indexOf(addVal) != 0) {
@@ -116,6 +119,9 @@ public class ALHeap
    */
   public Integer removeMin()
   {
+    if(_heap.size() == 1) {
+      return _heap.remove(0);
+    }
     Integer lastLeaf = _heap.get(_heap.size()-1);
     Integer prev = _heap.remove(_heap.size()-1);
     _heap.set(0, lastLeaf);
@@ -125,7 +131,7 @@ public class ALHeap
       swap(ind, minChildPos(ind));
       ind = _heap.indexOf(lastLeaf);
     }
-    if (ind*2+1 <= _heap.size() && lastLeaf > _heap.get(ind*2+1)) {
+    if (ind*2+1 < _heap.size() && lastLeaf > _heap.get(ind*2+1)) {
       swap(ind, ind*2+1);
     }
     return prev;
@@ -174,7 +180,6 @@ public class ALHeap
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ALHeap pile = new ALHeap();
 
       pile.add(2);
@@ -218,8 +223,11 @@ public class ALHeap
       System.out.println(pile);
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
+      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
+
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
