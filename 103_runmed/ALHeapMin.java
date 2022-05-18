@@ -6,6 +6,8 @@ HW 103 - Erica's Friends, Hugo, and The One in the Middle
 time spent: 1.0 hrs
 */
 
+import java.util.ArrayList;
+
 public class ALHeapMin{
 
   //instance vars
@@ -14,7 +16,7 @@ public class ALHeapMin{
   /**
    * default constructor  ---  inits empty heap
    */
-  public ALHeap()
+  public ALHeapMin()
   {
     _heap = new ArrayList<Integer>();
   }

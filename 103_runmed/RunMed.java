@@ -18,20 +18,20 @@ public class RunMed {
 
   public Integer getMedian() {
     if (lilVals.size() == bigVals.size()) {
-      return (lilVals.getMax() + bigVals.getMin())/2;
+      return (lilVals.peekMax() + bigVals.peekMin())/2;
     }
     else {
       if (lilVals.size() > bigVals.size()) {
-        return lilVals.getMax();
+        return lilVals.peekMax();
       }
       else {
-        return bigVals.getMin();
+        return bigVals.peekMin();
       }
     }
   }
 
   public void add(Integer newVal) {
-    if (newVal < lilVals.getMax()) {
+    if (newVal < lilVals.peekMax()) {
       lilVals.add(newVal);
     }
     else {
@@ -39,7 +39,7 @@ public class RunMed {
     }
     if (lilVals.size() > bigVals.size()+1) {
       while(lilVals.size() > bigVals.size()+1) {
-        bigVals.add(lilVals.removeMin());
+        bigVals.add(lilVals.removeMax());
       }
     }
     else if (bigVals.size() > lilVals.size()+1) {

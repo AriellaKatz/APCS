@@ -6,6 +6,8 @@ HW 103 - Erica's Friends, Hugo, and The One in the Middle
 time spent: 1.0 hrs
 */
 
+import java.util.ArrayList;
+
 public class ALHeapMax{
 
   //instance vars
@@ -14,7 +16,7 @@ public class ALHeapMax{
   /**
    * default constructor  ---  inits empty heap
    */
-  public ALHeap()
+  public ALHeapMax()
   {
     _heap = new ArrayList<Integer>();
   }
@@ -116,7 +118,7 @@ public class ALHeapMax{
       return null;
 
     //store root value for return at end of fxn
-    Integer retVal = peekMin();
+    Integer retVal = peekMax();
 
     //store val about to be swapped into root
     Integer foo = _heap.get( _heap.size() - 1);
