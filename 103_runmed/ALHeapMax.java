@@ -19,6 +19,9 @@ public class ALHeapMax{
     _heap = new ArrayList<Integer>();
   }
 
+  public int size() {
+    return _heap.size();
+  }
 
   /**
    * toString()  ---  overrides inherited method

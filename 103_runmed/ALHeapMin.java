@@ -19,6 +19,9 @@ public class ALHeapMin{
     _heap = new ArrayList<Integer>();
   }
 
+  public int size() {
+    return _heap.size();
+  }
 
   /**
    * toString()  ---  overrides inherited method
