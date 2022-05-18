@@ -6,7 +6,7 @@ HW 103 - Erica's Friends, Hugo, and The One in the Middle
 time spent: 1.0 hrs
 */
 
-public class ALHeapMind{
+public class ALHeapMin{
 
 
 
