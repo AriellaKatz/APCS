@@ -119,22 +119,28 @@ public class ALHeap
    */
   public Integer removeMin()
   {
+    if (_heap.size() == 0) {
+      return null;
+    }
     if(_heap.size() == 1) {
       return _heap.remove(0);
     }
-    Integer lastLeaf = _heap.get(_heap.size()-1);
-    Integer prev = _heap.remove(_heap.size()-1);
-    _heap.set(0, lastLeaf);
+    Integer retVal = peekMin();
+    swap(0, _heap.size()-1);
+    _heap.remove(_heap.size()-1);
+    Integer l = _heap.get(0);
     int ind = 0;
-    while ((ind*2+1 <= _heap.size()-1 && ind*2+2 <= _heap.size()-1) &&
-    (lastLeaf > _heap.get(ind*2+1) || lastLeaf > _heap.get(ind*2+2))) {
-      swap(ind, minChildPos(ind));
-      ind = _heap.indexOf(lastLeaf);
+    int minChildPos;
+    while (ind < _heap.size()) {
+      minChildPos = minChildPos(ind);
+      if (minChildPos == -1) { break; }
+      else if (l.compareTo(_heap.get(minChildPos)) <= 0) { break; }
+      else {
+        swap(ind, minChildPos);
+        ind = minChildPos;
+      }
     }
-    if (ind*2+1 < _heap.size() && lastLeaf > _heap.get(ind*2+1)) {
-      swap(ind, ind*2+1);
-    }
-    return prev;
+    return retVal;
   }//O(logn)
 
 
@@ -146,7 +152,7 @@ public class ALHeap
    */
   private int minChildPos( int pos )
   {
-    if (pos*2+1 <= _heap.size()-1 && pos*2+2 <= _heap.size()) {
+    if (pos*2+1 <= _heap.size()-1 && pos*2+2 <= _heap.size()-1) {
       if (_heap.get(pos*2+1) < _heap.get(pos*2+2)) {
         return pos*2+1;
       }
@@ -223,11 +229,9 @@ public class ALHeap
       System.out.println(pile);
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
-      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
-
+      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
