@@ -6,6 +6,8 @@ HW 103 - Erica's Friends, Hugo, and The One in the Middle
 time spent: 1.0 hrs
 */
 
+import java.util.NoSuchElementException;
+
 public class RunMed {
 
   ALHeapMax lilVals;
@@ -16,27 +18,34 @@ public class RunMed {
     bigVals = new ALHeapMin();
   }
 
-  public Integer getMedian() {
-    if (lilVals.size() == bigVals.size()) {
-      return (lilVals.peekMax() + bigVals.peekMin())/2;
-    }
-    else {
-      if (lilVals.size() > bigVals.size()) {
-        return lilVals.peekMax();
+  public Integer getMedian() throws NoSuchElementException {
+      if (lilVals.size() == bigVals.size()) {
+        return (lilVals.peekMax() + bigVals.peekMin())/2;
       }
       else {
-        return bigVals.peekMin();
+        if (lilVals.size() > bigVals.size()) {
+          return lilVals.peekMax();
+        }
+        else {
+          return bigVals.peekMin();
+        }
       }
-    }
   }
 
   public void add(Integer newVal) {
-    if (newVal < lilVals.peekMax()) {
+    if (lilVals.size() == 0 && bigVals.size() == 0) {
+      lilVals.add(newVal);
+    }
+    else if (bigVals.size() == 0) {
+      bigVals.add(newVal);
+    }
+    else if (newVal < lilVals.peekMax()) {
       lilVals.add(newVal);
     }
     else {
       bigVals.add(newVal);
     }
+
     if (lilVals.size() > bigVals.size()+1) {
       while(lilVals.size() > bigVals.size()+1) {
         bigVals.add(lilVals.removeMax());

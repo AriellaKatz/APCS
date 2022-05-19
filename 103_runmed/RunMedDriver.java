@@ -17,10 +17,10 @@ time spent: 1.0 hrs
    Compile, run fr same dir as RunMed.java
 
    to feed numbers manually:
-   $ java RunMed
+   $ java RunMedDriver
 
    to feed in prepared set:
-   $ java RunMed < input.nums
+   $ java RunMedDriver < input.nums
    (input.nums provided; must be in same dir)
 
    -------------------------
@@ -36,7 +36,7 @@ public class RunMedDriver
   public static void main( String[] args )
   {
 
-    // RunMed r = new RunMed();
+    RunMed r = new RunMed();
 
     int n;
     double median;
@@ -51,9 +51,9 @@ public class RunMedDriver
         count++;
         System.out.print("this many ints have been seen: " + count + "\n");
 
-        // r.add(n);
-        // median = r.getMedian();
-        // System.out.print("median is now " + median + "\n");
+        r.add(n);
+        median = r.getMedian();
+        System.out.print("median is now " + median + "\n");
       } catch (Exception e) {
         System.err.println("BOOP! probs w yer input:\n"+e);
       }
